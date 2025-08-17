@@ -1,7 +1,7 @@
 import { useEffect } from "react";
-import { Container, Row, Col, Card, Button } from 'react-bootstrap';
+import { Container, Row, Col, Card } from 'react-bootstrap';
 import { SITE } from "./constants/values";
-import { Routes, Route, useNavigate, useParams } from "react-router-dom";
+import { Routes, Route, useNavigate, useParams, useLocation } from "react-router-dom";
 import { BsWhatsapp, BsArrowLeft } from "react-icons/bs";
 
 const whatsappLink = "https://wa.me/0000000000"; // Replace with your number
@@ -43,42 +43,167 @@ export default function App() {
   }, []);
 
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/section/:sect" element={<SectionPage />} />
-      <Route path="*" element={<Home />} />
-    </Routes>
+    <>
+      <StickyHeader />
+      <div style={{ paddingTop: '10vh', paddingBottom: '10vh' }}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/section/:sect" element={<SectionPage />} />
+          <Route path="*" element={<Home />} />
+        </Routes>
+      </div>
+      <StickyFooter />
+    </>
+  );
+}
+
+function StickyHeader() {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  // Check if we're on a child page (section page)
+  const isChildPage = location.pathname.startsWith('/section/');
+
+  return (
+    <header
+      style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        height: '10vh',
+        backgroundColor: '#FFF0F5',
+        borderBottom: '2px solid #E6D6E6',
+        zIndex: 1000,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: '0 20px'
+      }}
+    >
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: '15px',
+          cursor: isChildPage ? 'default' : 'pointer',
+          position: 'relative',
+          width: '100%',
+          justifyContent: 'center'
+        }}
+        onClick={!isChildPage ? () => navigate('/') : undefined}
+      >
+        <img
+          src={`${import.meta.env.BASE_URL}images/logo.png`}
+          alt={SITE.brand}
+          height="50"
+          width="50"
+          className="rounded-circle"
+          style={{ objectFit: 'cover' }}
+        />
+        <p
+          style={{
+            color: '#b2868a',
+            fontWeight: '600',
+            fontStyle: 'italic',
+            fontSize: '1.2rem',
+            margin: 0
+          }}
+        >
+          "{SITE.tagline}"
+        </p>
+
+        {/* Back button - only visible on child pages */}
+        {isChildPage && (
+          <button
+            onClick={() => navigate('/')}
+            style={{
+              position: 'absolute',
+              right: 0,
+              background: '#fff',
+              border: '2px solid #b2868a',
+              borderRadius: '50%',
+              width: 40,
+              height: 40,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontSize: 18,
+              color: '#b2868a',
+              cursor: 'pointer',
+              boxShadow: '0 2px 8px rgba(178, 134, 138, 0.2)'
+            }}
+            aria-label="Back to Home"
+          >
+            <BsArrowLeft />
+          </button>
+        )}
+      </div>
+    </header>
+  );
+}
+
+function StickyFooter() {
+  return (
+    <footer
+      style={{
+        position: 'fixed',
+        bottom: 0,
+        left: 0,
+        right: 0,
+        height: '10vh',
+        backgroundColor: '#FFDFE9',
+        borderTop: '2px solid #CD5C8A',
+        zIndex: 1000,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center'
+      }}
+    >
+      <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
+        <span
+          style={{
+            color: '#773953',
+            fontWeight: '600',
+            fontSize: '1.1rem'
+          }}
+        >
+          WhatsApp to order
+        </span>
+        <a
+          href={whatsappLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            background: "#25D366",
+            borderRadius: "50%",
+            width: 45,
+            height: 45,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            color: "#fff",
+            fontSize: 24,
+            boxShadow: "0 3px 10px #25D36644",
+            textDecoration: 'none'
+          }}
+          title="Contact us on WhatsApp"
+        >
+          <BsWhatsapp />
+        </a>
+      </div>
+    </footer>
   );
 }
 
 function Home() {
   return (
     <>
-      <HeaderWithPunchline />
       <CakesForAllOccasions />
       <PartyFavorites />
       <CustomThemedCakes />
       <BouquetsSection />
-      <Footer />
     </>
-  );
-}
-
-function HeaderWithPunchline() {
-  return (
-    <Container className="text-center my-5">
-      <img
-        src={`${import.meta.env.BASE_URL}images/logo.png`}
-        alt={SITE.brand}
-        height="140"
-        width="140"
-        className="rounded-circle"
-        style={{ objectFit: 'cover' }}
-      />
-      <p className="mt-3" style={{ color: '#b2868a', fontWeight: '600', fontStyle: 'italic', fontSize: '1.6rem' }}>
-        "{SITE.tagline}"
-      </p>
-    </Container>
   );
 }
 
@@ -278,62 +403,11 @@ function SectionPage() {
     <div
       style={{
         background: colors[sect] || "#fff",
-        minHeight: "100vh",
-        paddingBottom: 40,
-        position: "relative"
+        minHeight: "80vh"
       }}
     >
-      {/* WhatsApp and Back buttons */}
-      <div
-        style={{
-          position: "fixed",
-          top: 14,
-          right: 16,
-          zIndex: 1000,
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "flex-end",
-          gap: 15
-        }}
-      >
-        <a
-          href={whatsappLink}
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{
-            background: "#25D366",
-            borderRadius: "50%",
-            width: 38,
-            height: 38,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            color: "#fff",
-            fontSize: 22,
-            boxShadow: "0 2px 8px #25D36644"
-          }}
-          title="Contact us on WhatsApp"
-        >
-          <BsWhatsapp />
-        </a>
-        <Button
-          variant="outline-secondary"
-          onClick={() => navigate("/")}
-          className="rounded-circle d-flex align-items-center justify-content-center p-0"
-          style={{
-            width: 38,
-            height: 38,
-            fontSize: 18,
-            border: "2px solid #b2868a"
-          }}
-          aria-label="Back to Home"
-        >
-          <BsArrowLeft style={{ margin: "auto", color: "#b2868a" }} />
-        </Button>
-      </div>
-
-      <Container className="pt-5">
-        <div className="text-center mb-5 mt-4">
+      <Container className="pt-4">
+        <div className="text-center mb-5">
           <h2 style={{ color: textColors[sect], fontWeight: "700", marginBottom: "1rem" }}>
             {section.title}
           </h2>
@@ -364,36 +438,5 @@ function SectionPage() {
         </Row>
       </Container>
     </div>
-  );
-}
-
-function Footer() {
-  return (
-    <footer className="py-5 mt-5" style={{ backgroundColor: '#FFDFE9', borderTop: '3px solid #CD5C8A' }}>
-      <Container>
-        <div className="text-center" style={{ color: '#773953', fontWeight: '600' }}>
-          <h4>{SITE.brand}</h4>
-          <div className="mb-4">
-            <a
-              href={`mailto:${SITE.contact.email}`}
-              className="text-decoration-none me-4"
-              style={{ color: '#96506F', fontWeight: '500' }}
-            >
-              {SITE.contact.email}
-            </a>
-            <a
-              href={`tel:${SITE.contact.phone}`}
-              className="text-decoration-none"
-              style={{ color: '#96506F', fontWeight: '500' }}
-            >
-              {SITE.contact.phone}
-            </a>
-          </div>
-          <p style={{ color: '#96506F', marginBottom: 0 }}>
-            &copy; 2025 {SITE.brand}. All rights reserved.
-          </p>
-        </div>
-      </Container>
-    </footer>
   );
 }
