@@ -42,10 +42,6 @@ export const SITE = {
       title: "Custom Themed Cakes",
       categories: [
         {
-          name: "Vintage Cars",
-          image: "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=400&h=300&fit=crop"
-        },
-        {
           name: "Baby Shower",
           image: "https://images.unsplash.com/photo-1621303837174-89787a7d4729?w=400&h=300&fit=crop"
         },
