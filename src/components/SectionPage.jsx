@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 import { useParams, useNavigate } from "react-router-dom";
 import { SITE } from "../constants/values";
 
@@ -7,112 +7,32 @@ const sectionFlavors = {
   cakesForAllOccasions: {
     title: "CREAM CHEESE CAKES",
     flavors: [
-      {
-        name: 'RED VELVET',
-        price: 27,
-        description: 'Classic velvet base with light and fluffy vanilla cream cheese frosting'
-      },
-      {
-        name: 'CARROT',
-        price: 27,
-        description: 'Spiced carrot base complemented by tangy vanilla cream'
-      },
-      {
-        name: 'COFFEE',
-        price: 27,
-        description: 'Aromatic coffee base complemented by vanilla cream cheese frosting'
-      },
-      {
-        name: 'OREO',
-        price: 29,
-        description: 'Moist chocolate base with crunch oreo bits and delicious vanilla cream cheese frosting'
-      },
-      {
-        name: 'BISCOFF',
-        price: 29,
-        description: 'Vanilla base with velvety biscoff cream cheese and crunchy biscoff bits'
-      },
-      {
-        name: 'NUTELLA',
-        price: 27,
-        description: 'Moist chocolate base with rich nutella cream cheese'
-      }
+      { name: 'RED VELVET', price: 27, description: 'Classic velvet base with light and fluffy vanilla cream cheese frosting' },
+      { name: 'CARROT', price: 27, description: 'Spiced carrot base complemented by tangy vanilla cream' },
+      { name: 'COFFEE', price: 27, description: 'Aromatic coffee base complemented by vanilla cream cheese frosting' },
+      { name: 'OREO', price: 29, description: 'Moist chocolate base with crunch oreo bits and delicious vanilla cream cheese frosting' },
+      { name: 'BISCOFF', price: 29, description: 'Vanilla base with velvety biscoff cream cheese and crunchy biscoff bits' },
+      { name: 'NUTELLA', price: 27, description: 'Moist chocolate base with rich nutella cream cheese' }
     ],
     title2: "BUTTERCREAM CAKES",
     flavors2: [
-      {
-        name: 'VANILLA',
-        price: 24,
-        description: 'Classic vanilla base with light and fluffy vanilla cream'
-      },
-      {
-        name: 'CHOCOLATE',
-        price: 25,
-        description: 'Moist chocolate base with rich chocolate buttercream and sprinkle of chocolate chips'
-      },
-      {
-        name: 'COFFEE',
-        price: 24,
-        description: 'Aromatic coffee base complemented by vanilla frosting'
-      },
-      {
-        name: 'COCONUT RASPBERRY',
-        price: 25,
-        description: 'Vanilla base with homemade raspberry purée and coconut buttercream'
-      },
-      {
-        name: 'OREO',
-        price: 29,
-        description: 'Moist chocolate base with crunch oreo bits and delicious vanilla cream'
-      },
-      {
-        name: 'BISCOFF',
-        price: 29,
-        description: 'Vanilla base with velvety biscoff buttercream and crunchy biscoff bits'
-      },
-      {
-        name: 'NUTELLA',
-        price: 27,
-        description: 'Moist chocolate base with rich chocolate cream and luscious nutella spread'
-      }
+      { name: 'VANILLA', price: 24, description: 'Classic vanilla base with light and fluffy vanilla cream' },
+      { name: 'CHOCOLATE', price: 25, description: 'Moist chocolate base with rich chocolate buttercream and sprinkle of chocolate chips' },
+      { name: 'COFFEE', price: 24, description: 'Aromatic coffee base complemented by vanilla frosting' },
+      { name: 'COCONUT RASPBERRY', price: 25, description: 'Vanilla base with homemade raspberry purée and coconut buttercream' },
+      { name: 'OREO', price: 29, description: 'Moist chocolate base with crunch oreo bits and delicious vanilla cream' },
+      { name: 'BISCOFF', price: 29, description: 'Vanilla base with velvety biscoff buttercream and crunchy biscoff bits' },
+      { name: 'NUTELLA', price: 27, description: 'Moist chocolate base with rich chocolate cream and luscious nutella spread' }
     ],
     title3: "FRESH CREAM CAKES",
     flavors3: [
-      {
-        name: 'STRAWBERRY',
-        price: 26,
-        description: 'Moist vanilla base with homemade strawberry purée and fluffy strawberry cream'
-      },
-      {
-        name: 'MANGO',
-        price: 24,
-        description: 'Classic vanilla base paired with rich mango purée and smooth mango cream'
-      },
-      {
-        name: 'PINEAPPLE',
-        price: 24,
-        description: 'Vanilla base with light pineapple cream and juicy pineapple chunks'
-      },
-      {
-        name: 'WHITE FOREST',
-        price: 25,
-        description: 'Vanilla base with cherry compote complemented by delicate white chocolate fresh cream'
-      },
-      {
-        name: 'BLACK FOREST',
-        price: 25,
-        description: 'Moist chocolate base with cherry compote and delicious chocolate cream'
-      },
-      {
-        name: 'ROSE PISTACHIO',
-        price: 29,
-        description: 'Pistachio base, layered with aromatic rose cream and crushed pistachio'
-      },
-      {
-        name: 'COCONUT RASPBERRY',
-        price: 27,
-        description: 'Vanilla base with tangy raspberry jam and creamy coconut fresh cream'
-      }
+      { name: 'STRAWBERRY', price: 26, description: 'Moist vanilla base with homemade strawberry purée and fluffy strawberry cream' },
+      { name: 'MANGO', price: 24, description: 'Classic vanilla base paired with rich mango purée and smooth mango cream' },
+      { name: 'PINEAPPLE', price: 24, description: 'Vanilla base with light pineapple cream and juicy pineapple chunks' },
+      { name: 'WHITE FOREST', price: 25, description: 'Vanilla base with cherry compote complemented by delicate white chocolate fresh cream' },
+      { name: 'BLACK FOREST', price: 25, description: 'Moist chocolate base with cherry compote and delicious chocolate cream' },
+      { name: 'ROSE PISTACHIO', price: 29, description: 'Pistachio base, layered with aromatic rose cream and crushed pistachio' },
+      { name: 'COCONUT RASPBERRY', price: 27, description: 'Vanilla base with tangy raspberry jam and creamy coconut fresh cream' }
     ],
     basePrice: 'From €24.00'
   },
@@ -160,7 +80,6 @@ export default function SectionPage() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Scroll to top when component mounts
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -179,43 +98,62 @@ export default function SectionPage() {
     bouquets: "#FFE0F2"
   };
 
-  const textColors = {
-    cakesForAllOccasions: "#6B5B7B",
-    partyFavorites: "#B84C73",
-    customThemedCakes: "#5C7DB1",
-    bouquets: "#CC5E8B"
-  };
+  const FlavorItem = ({ item }) => (
+    <div style={{
+      marginBottom: '2rem',
+      borderBottom: '1px solid rgba(107, 75, 58, 0.1)',
+      paddingBottom: '1rem'
+    }}>
+      <div style={{
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'flex-start',
+        marginBottom: '0.5rem'
+      }}>
+        <h3 style={{
+          color: '#000',
+          fontWeight: '700',
+          fontSize: isMobile ? '1.1rem' : '1.4rem',
+          letterSpacing: '1px',
+          textAlign: 'left',
+          margin: 0,
+          flex: 1
+        }}>
+          {item.name}
+        </h3>
+        <span style={{
+          color: '#000',
+          fontWeight: '700',
+          fontSize: isMobile ? '1rem' : '1.2rem',
+          fontStyle: 'italic',
+          marginLeft: '1rem'
+        }}>
+          FROM €{item.price}.99
+        </span>
+      </div>
+      <p style={{
+        color: '#666',
+        fontSize: isMobile ? '0.9rem' : '1rem',
+        margin: 0,
+        textTransform: 'uppercase',
+        letterSpacing: '0.5px',
+        fontWeight: '400',
+        textAlign: 'left'
+      }}>
+        {item.description}
+      </p>
+    </div>
+  );
 
   return (
     <div
       style={{
         background: colors[sect] || "#fff",
-        minHeight: "80vh",
-        paddingTop: '2rem'
+        minHeight: "100vh",
+        paddingBottom: '10vh'  // Only bottom padding to reach footer
       }}
     >
-      <Container>
-        <div className="text-center mb-5">
-          <h1 style={{
-            color: '#000',
-            fontWeight: "700",
-            marginBottom: "1rem",
-            fontSize: isMobile ? '1.8rem' : '2.5rem',
-            letterSpacing: '2px'
-          }}>
-            ZUNU BAKEHOUSE
-          </h1>
-          <p style={{
-            fontSize: isMobile ? '1.1rem' : '1.3rem',
-            fontWeight: '600',
-            color: '#6B4B3A',
-            margin: '0 auto 2rem',
-            maxWidth: '600px'
-          }}>
-            {sectionData.basePrice}
-          </p>
-        </div>
-
+      <Container style={{ paddingTop: '2rem' }}>
         {/* For Cakes for All Occasions - Multiple Categories */}
         {sect === 'cakesForAllOccasions' && (
           <>
@@ -231,40 +169,8 @@ export default function SectionPage() {
               }}>
                 {sectionData.title}
               </h2>
-
               {sectionData.flavors.map((item, i) => (
-                <div key={i} style={{
-                  marginBottom: '2rem',
-                  textAlign: 'center'
-                }}>
-                  <h3 style={{
-                    color: '#000',
-                    fontWeight: '700',
-                    fontSize: isMobile ? '1.1rem' : '1.4rem',
-                    marginBottom: '0.5rem',
-                    letterSpacing: '1px'
-                  }}>
-                    {item.name}
-                    <span style={{
-                      float: 'right',
-                      color: '#000',
-                      fontWeight: '700'
-                    }}>
-                      FROM €{item.price}.99
-                    </span>
-                  </h3>
-                  <p style={{
-                    color: '#666',
-                    fontSize: isMobile ? '0.9rem' : '1rem',
-                    margin: '0.5rem auto',
-                    maxWidth: '600px',
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.5px',
-                    fontWeight: '400'
-                  }}>
-                    {item.description}
-                  </p>
-                </div>
+                <FlavorItem key={i} item={item} />
               ))}
             </div>
 
@@ -280,40 +186,8 @@ export default function SectionPage() {
               }}>
                 {sectionData.title2}
               </h2>
-
               {sectionData.flavors2.map((item, i) => (
-                <div key={i} style={{
-                  marginBottom: '2rem',
-                  textAlign: 'center'
-                }}>
-                  <h3 style={{
-                    color: '#000',
-                    fontWeight: '700',
-                    fontSize: isMobile ? '1.1rem' : '1.4rem',
-                    marginBottom: '0.5rem',
-                    letterSpacing: '1px'
-                  }}>
-                    {item.name}
-                    <span style={{
-                      float: 'right',
-                      color: '#000',
-                      fontWeight: '700'
-                    }}>
-                      FROM €{item.price}.99
-                    </span>
-                  </h3>
-                  <p style={{
-                    color: '#666',
-                    fontSize: isMobile ? '0.9rem' : '1rem',
-                    margin: '0.5rem auto',
-                    maxWidth: '600px',
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.5px',
-                    fontWeight: '400'
-                  }}>
-                    {item.description}
-                  </p>
-                </div>
+                <FlavorItem key={i} item={item} />
               ))}
             </div>
 
@@ -329,40 +203,8 @@ export default function SectionPage() {
               }}>
                 {sectionData.title3}
               </h2>
-
               {sectionData.flavors3.map((item, i) => (
-                <div key={i} style={{
-                  marginBottom: '2rem',
-                  textAlign: 'center'
-                }}>
-                  <h3 style={{
-                    color: '#000',
-                    fontWeight: '700',
-                    fontSize: isMobile ? '1.1rem' : '1.4rem',
-                    marginBottom: '0.5rem',
-                    letterSpacing: '1px'
-                  }}>
-                    {item.name}
-                    <span style={{
-                      float: 'right',
-                      color: '#000',
-                      fontWeight: '700'
-                    }}>
-                      FROM €{item.price}.99
-                    </span>
-                  </h3>
-                  <p style={{
-                    color: '#666',
-                    fontSize: isMobile ? '0.9rem' : '1rem',
-                    margin: '0.5rem auto',
-                    maxWidth: '600px',
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.5px',
-                    fontWeight: '400'
-                  }}>
-                    {item.description}
-                  </p>
-                </div>
+                <FlavorItem key={i} item={item} />
               ))}
             </div>
           </>
@@ -372,38 +214,7 @@ export default function SectionPage() {
         {sect !== 'cakesForAllOccasions' && (
           <div style={{ maxWidth: 800, margin: "0 auto 4rem" }}>
             {sectionData.flavors.map((item, i) => (
-              <div key={i} style={{
-                marginBottom: '2rem',
-                textAlign: 'center'
-              }}>
-                <h3 style={{
-                  color: '#000',
-                  fontWeight: '700',
-                  fontSize: isMobile ? '1.1rem' : '1.4rem',
-                  marginBottom: '0.5rem',
-                  letterSpacing: '1px'
-                }}>
-                  {item.name}
-                  <span style={{
-                    float: 'right',
-                    color: '#000',
-                    fontWeight: '700'
-                  }}>
-                    FROM €{item.price}.99
-                  </span>
-                </h3>
-                <p style={{
-                  color: '#666',
-                  fontSize: isMobile ? '0.9rem' : '1rem',
-                  margin: '0.5rem auto',
-                  maxWidth: '600px',
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.5px',
-                  fontWeight: '400'
-                }}>
-                  {item.description}
-                </p>
-              </div>
+              <FlavorItem key={i} item={item} />
             ))}
           </div>
         )}

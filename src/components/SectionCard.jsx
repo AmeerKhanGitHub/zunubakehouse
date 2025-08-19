@@ -3,7 +3,7 @@ import { Container, Row, Col, Card } from 'react-bootstrap';
 import { useNavigate } from "react-router-dom";
 import { SITE } from "../constants/values";
 
-export default function SectionCard({ sectionKey, bgColor, textColor, description }) {
+export default function SectionCard({ sectionKey, bgColor, textColor, description, index }) {
   const section = SITE.sections[sectionKey];
   const navigate = useNavigate();
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
@@ -21,15 +21,89 @@ export default function SectionCard({ sectionKey, bgColor, textColor, descriptio
   if (section.image) imgs = [section.image];
   imgs = imgs.slice(0, 4);
 
+  // Determine if this section should have reversed layout (even index = reversed)
+  const isReversed = index % 2 === 1;
+
+  const textContent = (
+    <Col md={5} style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-start' }}>
+      <h2 style={{
+        color: textColor,
+        fontWeight: '600',
+        marginBottom: '1rem',
+        fontSize: isMobile ? '1.3rem' : '1.5rem',
+        textAlign: 'left'
+      }}>
+        {section.title}
+      </h2>
+      <p style={{
+        color: '#6B4B3A',
+        fontSize: isMobile ? '0.9rem' : '1rem',
+        lineHeight: 1.5,
+        textAlign: 'left'
+      }}>
+        {description}
+      </p>
+    </Col>
+  );
+
+  const imageContent = (
+    <Col md={7}>
+      <Row className="g-3">
+        {imgs.map((img, i) => (
+          <Col key={i} xs={6} md={6}>
+            <Card className="border-0 shadow-sm h-100">
+              <Card.Img
+                variant="top"
+                src={img}
+                style={{
+                  height: isMobile ? '200px' : '260px',
+                  objectFit: 'cover',
+                  transition: 'transform 0.3s ease'
+                }}
+                onMouseEnter={(e) => e.target.style.transform = 'scale(1.05)'}
+                onMouseLeave={(e) => e.target.style.transform = 'scale(1)'}
+              />
+              {section.items && (
+                <Card.Body className="text-center p-2">
+                  <Card.Title style={{
+                    color: '#6B4B3A',
+                    fontWeight: '500',
+                    fontSize: isMobile ? '0.8rem' : '0.9rem',
+                    margin: 0
+                  }}>
+                    {section.items[i]?.name}
+                  </Card.Title>
+                </Card.Body>
+              )}
+              {section.categories && (
+                <Card.Body className="text-center p-2">
+                  <Card.Title style={{
+                    color: '#6B4B3A',
+                    fontWeight: '500',
+                    fontSize: isMobile ? '0.8rem' : '0.9rem',
+                    margin: 0
+                  }}>
+                    {section.categories[i]?.name}
+                  </Card.Title>
+                </Card.Body>
+              )}
+            </Card>
+          </Col>
+        ))}
+      </Row>
+    </Col>
+  );
+
   return (
     <Container
-      className="my-5 py-5"
+      className="py-5"
       style={{
         backgroundColor: bgColor,
         borderRadius: '1rem',
         cursor: 'pointer',
         transition: 'transform 0.2s ease, box-shadow 0.2s ease',
-        boxShadow: '0 4px 16px rgba(60,20,50,0.06)'
+        boxShadow: '0 4px 16px rgba(60,20,50,0.06)',
+        marginBottom: '2rem'
       }}
       onClick={() => navigate(`/section/${sectionKey}`)}
       onMouseEnter={(e) => {
@@ -41,69 +115,27 @@ export default function SectionCard({ sectionKey, bgColor, textColor, descriptio
         e.currentTarget.style.boxShadow = '0 4px 16px rgba(60,20,50,0.06)';
       }}
     >
-      <Row className="align-items-center">
-        <Col md={5}>
-          <h2 style={{
-            color: textColor,
-            fontWeight: '600',
-            marginBottom: '1rem',
-            fontSize: isMobile ? '1.3rem' : '1.5rem'
-          }}>
-            {section.title}
-          </h2>
-          <p style={{
-            color: '#6B4B3A',
-            fontSize: isMobile ? '0.9rem' : '1rem',
-            lineHeight: 1.5
-          }}>
-            {description}
-          </p>
-        </Col>
-        <Col md={7}>
-          <Row className="g-3">
-            {imgs.map((img, i) => (
-              <Col key={i} xs={6} md={6}>
-                <Card className="border-0 shadow-sm h-100">
-                  <Card.Img
-                    variant="top"
-                    src={img}
-                    style={{
-                      height: isMobile ? '200px' : '260px',
-                      objectFit: 'cover',
-                      transition: 'transform 0.3s ease'
-                    }}
-                    onMouseEnter={(e) => e.target.style.transform = 'scale(1.05)'}
-                    onMouseLeave={(e) => e.target.style.transform = 'scale(1)'}
-                  />
-                  {section.items && (
-                    <Card.Body className="text-center p-2">
-                      <Card.Title style={{
-                        color: '#6B4B3A',
-                        fontWeight: '500',
-                        fontSize: isMobile ? '0.8rem' : '0.9rem',
-                        margin: 0
-                      }}>
-                        {section.items[i]?.name}
-                      </Card.Title>
-                    </Card.Body>
-                  )}
-                  {section.categories && (
-                    <Card.Body className="text-center p-2">
-                      <Card.Title style={{
-                        color: '#6B4B3A',
-                        fontWeight: '500',
-                        fontSize: isMobile ? '0.8rem' : '0.9rem',
-                        margin: 0
-                      }}>
-                        {section.categories[i]?.name}
-                      </Card.Title>
-                    </Card.Body>
-                  )}
-                </Card>
-              </Col>
-            ))}
-          </Row>
-        </Col>
+      <Row className="align-items-start">
+        {isMobile ? (
+          // Mobile: Always text first, then images
+          <>
+            {textContent}
+            {imageContent}
+          </>
+        ) : (
+          // Desktop: Alternate layout
+          isReversed ? (
+            <>
+              {imageContent}
+              {textContent}
+            </>
+          ) : (
+            <>
+              {textContent}
+              {imageContent}
+            </>
+          )
+        )}
       </Row>
     </Container>
   );

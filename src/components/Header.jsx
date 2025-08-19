@@ -72,21 +72,34 @@ export default function Header() {
         }}>
           Zunu Bakehouse
         </h1>
-        <p style={{
-          fontStyle: 'italic',
-          fontWeight: '400',
-          margin: 0,
-          fontSize: isMobile ? '0.75rem' : '0.95rem',
-          color: '#b2868a',
-          lineHeight: 1,
-          overflow: 'hidden',
-          textOverflow: 'ellipsis',
-          whiteSpace: 'nowrap',
+        <div style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
           marginTop: '2px',
           marginLeft: isMobile ? '0' : '2rem'
         }}>
-          {SITE.tagline}
-        </p>
+          <p style={{
+            fontStyle: 'italic',
+            fontWeight: '400',
+            margin: 0,
+            fontSize: isMobile ? '0.75rem' : '0.95rem',
+            color: '#b2868a',
+            lineHeight: 1,
+            overflow: 'hidden',
+            textOverflow: 'ellipsis',
+            whiteSpace: 'nowrap'
+          }}>
+            {SITE.tagline}
+          </p>
+          <span style={{
+            marginLeft: '8px',
+            fontSize: isMobile ? '0.9rem' : '1.1rem',
+            color: '#b2868a'
+          }}>
+            👨‍🍳
+          </span>
+        </div>
       </div>
 
       {/* Right: Back Button */}

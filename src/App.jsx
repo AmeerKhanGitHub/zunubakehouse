@@ -18,7 +18,7 @@ export default function App() {
   return (
     <>
       <Header />
-      <div style={{ paddingTop: '10vh', paddingBottom: '10vh' }}>
+      <div style={{ paddingTop: '10vh', paddingBottom: '0' }}>  {/* Removed bottom padding */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/section/:sect" element={<SectionPage />} />
