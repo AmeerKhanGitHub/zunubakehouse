@@ -62,7 +62,12 @@ export const SITE = {
       title: "Bouqcakes",
       subtitle: "Perfect Gifts",
       description: "Beautifully crafted cupcake bouquets that make the perfect gift for any occasion.",
-          image: `${import.meta.env.BASE_URL}images/13.jpg`
+      images: [
+        `${import.meta.env.BASE_URL}images/13.jpg`,
+        `${import.meta.env.BASE_URL}images/13.jpg`,
+        `${import.meta.env.BASE_URL}images/13.jpg`,
+        `${import.meta.env.BASE_URL}images/13.jpg`,
+      ]
     },
   },
   contact: {
