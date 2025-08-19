@@ -63,30 +63,6 @@ export default function SectionCard({ sectionKey, bgColor, textColor, descriptio
                 onMouseEnter={(e) => e.target.style.transform = 'scale(1.05)'}
                 onMouseLeave={(e) => e.target.style.transform = 'scale(1)'}
               />
-              {section.items && (
-                <Card.Body className="text-center p-2">
-                  <Card.Title style={{
-                    color: '#6B4B3A',
-                    fontWeight: '500',
-                    fontSize: isMobile ? '0.8rem' : '0.9rem',
-                    margin: 0
-                  }}>
-                    {section.items[i]?.name}
-                  </Card.Title>
-                </Card.Body>
-              )}
-              {section.categories && (
-                <Card.Body className="text-center p-2">
-                  <Card.Title style={{
-                    color: '#6B4B3A',
-                    fontWeight: '500',
-                    fontSize: isMobile ? '0.8rem' : '0.9rem',
-                    margin: 0
-                  }}>
-                    {section.categories[i]?.name}
-                  </Card.Title>
-                </Card.Body>
-              )}
             </Card>
           </Col>
         ))}
@@ -96,7 +72,7 @@ export default function SectionCard({ sectionKey, bgColor, textColor, descriptio
 
   return (
     <Container
-      className="py-5"
+      className="pt-4 pb-5"
       style={{
         backgroundColor: bgColor,
         borderRadius: '1rem',

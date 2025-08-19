@@ -3,7 +3,7 @@ import MainFooter from "./MainFooter";
 
 export default function Home() {
   return (
-    <div style={{ paddingTop: 0 }}>
+    <div style={{ paddingTop: '1rem' }}>
       <SectionCard
         sectionKey="cakesForAllOccasions"
         bgColor="#E6E6FA"
