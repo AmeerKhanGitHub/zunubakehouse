@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { BsWhatsapp } from "react-icons/bs";
+import { BsWhatsapp, BsArrowUp } from "react-icons/bs";
 
 const whatsappLink = "https://wa.me/+353892058875";
 
@@ -11,6 +11,13 @@ export default function Footer() {
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
 
   return (
     <footer
@@ -25,10 +32,14 @@ export default function Footer() {
         zIndex: 1000,
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'space-between',
         padding: isMobile ? '0 15px' : '0 20px'
       }}
     >
+      {/* Left: Spacer for visual balance */}
+      <div style={{ width: isMobile ? '35px' : '40px' }} />
+
+      {/* Center: Order Now & WhatsApp */}
       <div style={{
         display: 'flex',
         alignItems: 'center',
@@ -68,6 +79,39 @@ export default function Footer() {
           <BsWhatsapp />
         </a>
       </div>
+
+      {/* Right: Scroll to Top Button */}
+      <button
+        onClick={scrollToTop}
+        style={{
+          background: "rgba(255, 255, 255, 0.9)",
+          border: "2px solid #CD5C8A",
+          borderRadius: "50%",
+          width: isMobile ? 35 : 40,
+          height: isMobile ? 35 : 40,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          color: "#CD5C8A",
+          fontSize: isMobile ? 16 : 18,
+          cursor: "pointer",
+          transition: 'all 0.2s ease',
+          boxShadow: '0 2px 8px rgba(205, 92, 138, 0.2)'
+        }}
+        title="Scroll to top"
+        onMouseEnter={(e) => {
+          e.target.style.transform = 'translateY(-2px)';
+          e.target.style.boxShadow = '0 4px 12px rgba(205, 92, 138, 0.3)';
+          e.target.style.background = '#fff';
+        }}
+        onMouseLeave={(e) => {
+          e.target.style.transform = 'translateY(0)';
+          e.target.style.boxShadow = '0 2px 8px rgba(205, 92, 138, 0.2)';
+          e.target.style.background = 'rgba(255, 255, 255, 0.9)';
+        }}
+      >
+        <BsArrowUp />
+      </button>
     </footer>
   );
 }

@@ -9,12 +9,26 @@ export default function Header() {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
   const isChildPage = location.pathname.startsWith('/section/');
+  const isHomePage = location.pathname === '/';
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 768);
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
+
+  const handleLogoClick = () => {
+    if (isHomePage) {
+      // If on home page, scroll to top
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    } else {
+      // If on child page, navigate to home
+      navigate('/');
+    }
+  };
 
   return (
     <header
@@ -33,14 +47,22 @@ export default function Header() {
         boxSizing: 'border-box'
       }}
     >
-      {/* Left: Logo */}
-      <div style={{
-        flex: '0 0 auto',
-        marginRight: isMobile ? '8px' : '15px'
-      }}>
+      {/* Left: Clickable Logo */}
+      <div
+        style={{
+          flex: '0 0 auto',
+          marginRight: isMobile ? '8px' : '15px',
+          cursor: 'pointer',
+          transition: 'transform 0.2s ease'
+        }}
+        onClick={handleLogoClick}
+        onMouseEnter={(e) => e.target.style.transform = 'scale(1.05)'}
+        onMouseLeave={(e) => e.target.style.transform = 'scale(1)'}
+        title={isHomePage ? "Scroll to Top" : "Go to Home"}
+      >
         <img
           src={`${import.meta.env.BASE_URL}images/logo.png`}
-          alt={SITE.brand}
+          alt={isHomePage ? "Zunu Bakehouse - Scroll to Top" : "Zunu Bakehouse - Go to Home"}
           height={isMobile ? "55" : "70"}
           width={isMobile ? "55" : "70"}
           className="rounded-circle"
@@ -58,7 +80,7 @@ export default function Header() {
           paddingLeft: isMobile ? '5px' : '10px',
           paddingRight: isMobile ? '5px' : '10px'
         }}
-        onClick={!isChildPage ? () => navigate('/') : undefined}
+        onClick={!isChildPage ? handleLogoClick : undefined}
       >
         <h1 style={{
           margin: 0,
@@ -94,10 +116,10 @@ export default function Header() {
           </p>
           <span style={{
             marginLeft: '8px',
-            fontSize: isMobile ? '0.9rem' : '1.1rem',
+            fontSize: isMobile ? '1rem' : '1.2rem',
             color: '#b2868a'
           }}>
-            👨‍🍳
+            👩‍🍳
           </span>
         </div>
       </div>

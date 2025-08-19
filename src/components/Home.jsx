@@ -1,8 +1,9 @@
 import SectionCard from "./SectionCard";
+import MainFooter from "./MainFooter";
 
 export default function Home() {
   return (
-    <div style={{ paddingTop: 0 }}>  {/* Remove top padding */}
+    <div style={{ paddingTop: 0 }}>
       <SectionCard
         sectionKey="cakesForAllOccasions"
         bgColor="#E6E6FA"
@@ -34,6 +35,8 @@ export default function Home() {
         description="Stunning cupcake bouquets that combine the beauty of flowers with the indulgence of cake."
         index={3}
       />
+
+      <MainFooter />
     </div>
   );
 }

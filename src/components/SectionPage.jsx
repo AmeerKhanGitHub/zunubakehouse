@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Container } from 'react-bootstrap';
 import { useParams, useNavigate } from "react-router-dom";
 import { SITE } from "../constants/values";
+import MainFooter from "./MainFooter";
 
 const sectionFlavors = {
   cakesForAllOccasions: {
@@ -219,6 +220,7 @@ export default function SectionPage() {
           </div>
         )}
       </Container>
+      <MainFooter />
     </div>
   );
 }
