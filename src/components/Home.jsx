@@ -13,19 +13,11 @@ export default function Home() {
       />
 
       <SectionCard
-        sectionKey="partyFavorites"
-        bgColor="#FFDDEE"
-        textColor="#B84C73"
-        description="Our Party Favourites collection features an assortment of indulgent multi-pack desserts, perfect for refined gatherings."
-        index={1}
-      />
-
-      <SectionCard
         sectionKey="customThemedCakes"
         bgColor="#DDEEFF"
         textColor="#5C7DB1"
         description="Our custom cakes are thoughtfully designed to reflect your vision and crafted with the finest ingredients."
-        index={2}
+        index={1}
       />
 
       <SectionCard
@@ -33,9 +25,16 @@ export default function Home() {
         bgColor="#FFE0F2"
         textColor="#CC5E8B"
         description="Stunning cupcake bouquets that combine the beauty of flowers with the indulgence of cake."
-        index={3}
+        index={2}
       />
 
+      <SectionCard
+        sectionKey="partyFavorites"
+        bgColor="#FFDDEE"
+        textColor="#B84C73"
+        description="Our Party Favourites collection features an assortment of indulgent multi-pack desserts, perfect for refined gatherings."
+        index={3}
+      />
       <MainFooter />
     </div>
   );
