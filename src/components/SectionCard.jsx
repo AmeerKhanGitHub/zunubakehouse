@@ -67,7 +67,8 @@ export default function SectionCard({
             display: 'flex',
             alignItems: 'center',
             gap: isMobile ? '10px' : '15px',
-            marginTop: '0.25rem'
+            marginTop: '1rem',
+            marginBottom: '1rem'
           }}
         >
           <span
