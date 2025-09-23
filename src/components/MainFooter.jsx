@@ -132,7 +132,7 @@ export default function MainFooter() {
                 marginBottom: '2rem'
               }}>
                 <a
-                  href="https://facebook.com/zunubakehouse"
+                  href="https://facebook.com/zunu.bakehouse"
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{
@@ -154,7 +154,7 @@ export default function MainFooter() {
                 </a>
 
                 <a
-                  href="https://instagram.com/zunubakehouse"
+                  href="https://instagram.com/zunu.bakehouse"
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{
