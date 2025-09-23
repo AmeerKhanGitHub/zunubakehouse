@@ -69,6 +69,12 @@ export const SITE = {
         `${import.meta.env.BASE_URL}images/13.jpg`,
       ]
     },
+    tresLeches: {
+      title: "Tres Leches",
+      images: [
+        `${import.meta.env.BASE_URL}images/6.jpg`
+      ],
+    },
   },
   contact: {
     email: "hello@zunubakehouse.com",

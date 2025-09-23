@@ -1,9 +1,19 @@
+// SectionCard.jsx
 import { useState, useEffect } from "react";
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import { useNavigate } from "react-router-dom";
 import { SITE } from "../constants/values";
+import { BsWhatsapp } from "react-icons/bs";
 
-export default function SectionCard({ sectionKey, bgColor, textColor, description, index }) {
+export default function SectionCard({
+  sectionKey,
+  bgColor,
+  textColor,
+  description,
+  index,
+  disableNavigation = false,
+  whatsappLink
+}) {
   const section = SITE.sections[sectionKey];
   const navigate = useNavigate();
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
@@ -21,8 +31,11 @@ export default function SectionCard({ sectionKey, bgColor, textColor, descriptio
   if (section.image) imgs = [section.image];
   imgs = imgs.slice(0, 4);
 
-  // Determine if this section should have reversed layout (even index = reversed)
   const isReversed = index % 2 === 1;
+
+  const handleCardClick = () => {
+    if (!disableNavigation) navigate(`/section/${sectionKey}`);
+  };
 
   const textContent = (
     <Col md={5} style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-start' }}>
@@ -35,14 +48,63 @@ export default function SectionCard({ sectionKey, bgColor, textColor, descriptio
       }}>
         {section.title}
       </h2>
+
       <p style={{
         color: '#6B4B3A',
         fontSize: isMobile ? '0.9rem' : '1rem',
         lineHeight: 1.5,
-        textAlign: 'left'
+        textAlign: 'left',
+        marginBottom: disableNavigation ? '0.5rem' : 0
       }}>
         {description}
       </p>
+
+      {disableNavigation && whatsappLink && (
+        <div
+          // action row directly below description
+          onClick={(e) => e.stopPropagation()}
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: isMobile ? '10px' : '15px',
+            marginTop: '0.25rem'
+          }}
+        >
+          <span
+            style={{
+              color: '#773953',
+              fontWeight: '600',
+              fontSize: isMobile ? '0.9rem' : '1.1rem'
+            }}
+          >
+            ORDER NOW
+          </span>
+          <a
+            href={whatsappLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              background: "#25D366",
+              borderRadius: "50%",
+              width: isMobile ? 38 : 45,
+              height: isMobile ? 38 : 45,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              color: "#fff",
+              fontSize: isMobile ? 20 : 24,
+              boxShadow: "0 3px 10px #25D36644",
+              textDecoration: 'none',
+              transition: 'transform 0.2s ease'
+            }}
+            title="Contact us on WhatsApp"
+            onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
+            onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
+          >
+            <BsWhatsapp />
+          </a>
+        </div>
+      )}
     </Col>
   );
 
@@ -76,31 +138,31 @@ export default function SectionCard({ sectionKey, bgColor, textColor, descriptio
       style={{
         backgroundColor: bgColor,
         borderRadius: '1rem',
-        cursor: 'pointer',
+        cursor: disableNavigation ? 'default' : 'pointer',
         transition: 'transform 0.2s ease, box-shadow 0.2s ease',
         boxShadow: '0 4px 16px rgba(60,20,50,0.06)',
         marginBottom: '2rem'
       }}
-      onClick={() => navigate(`/section/${sectionKey}`)}
+      onClick={handleCardClick}
       onMouseEnter={(e) => {
+        if (disableNavigation) return;
         e.currentTarget.style.transform = 'translateY(-2px)';
         e.currentTarget.style.boxShadow = '0 8px 25px rgba(60,20,50,0.12)';
       }}
       onMouseLeave={(e) => {
+        if (disableNavigation) return;
         e.currentTarget.style.transform = 'translateY(0)';
         e.currentTarget.style.boxShadow = '0 4px 16px rgba(60,20,50,0.06)';
       }}
     >
       <Row className="align-items-start">
         {isMobile ? (
-          // Mobile: Always text first, then images
           <>
             {textContent}
             {imageContent}
           </>
         ) : (
-          // Desktop: Alternate layout
-          isReversed ? (
+          (index % 2 === 1) ? (
             <>
               {imageContent}
               {textContent}

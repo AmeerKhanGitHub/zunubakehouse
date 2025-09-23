@@ -5,33 +5,36 @@ import FlavorItem from "../shared/FlavorItem";
 
 const cakesData = {
   sizes: [
-    { size: '6"', price: 24, serves: '8-10' },
-    { size: '8"', price: 26, serves: '16-20' }
+    { size: '6"', serves: 'Serves 8-10' },
+    { size: '8"', serves: 'Serves 16-20' },
+    { size: '10"', serves: 'Serves 24-30' }
   ],
   addOns: [
-    { name: 'Happy Birthday Topper', price: 3 },
-    { name: 'Happy Anniversary Topper', price: 3 },
-    { name: 'Personalized Message', price: 4 }
+      { name: 'Happy Birthday Topper', price: 1 },
+      { name: 'Happy Anniversary Topper', price: 1 },
+      { name: 'Personalized Message', price: 3 }
   ],
   flavors: [
-    { name: 'CARAMEL', price6: 27, price8: 42, description: 'Moist chocolate base with salted caramel cream', label: null },
-    { name: 'BLACK FOREST', price6: 25, price8: 39, description: 'Moist chocolate base with cherry compote and delicious fresh cream', label: 'Must-try' },
-    { name: 'WHITE FOREST', price6: 25, price8: 40, description: 'Vanilla base with cherry compote complemented by delicate fresh cream', label: null },
-    { name: 'STRAWBERRY', price6: 26, price8: 41, description: 'Moist vanilla base with homemade strawberry purée and fluffy strawberry fresh cream', label: 'Must-try' },
-    { name: 'MANGO', price6: 24, price8: 39, description: 'Classic vanilla base paired with rich mango purée and smooth mango fresh cream', label: 'Best-seller' },
-    { name: 'PINEAPPLE', price6: 24, price8: 38, description: 'Vanilla base with light pineapple fresh cream and juicy pineapple chunks', label: null },
-    { name: 'ROSE PISTACHIO', price6: 29, price8: 43, description: 'Pistachio base, layered with aromatic rose fresh cream and crushed pistachio', label: 'Best-seller' },
-    { name: 'VANILLA', price6: 24, price8: 39, description: 'Classic vanilla base with light and fluffy vanilla buttercream', label: null },
-    { name: 'CHOCOLATE', price6: 25, price8: 40, description: 'Moist chocolate base with rich chocolate buttercream and sprinkle of chocolate chips', label: null },
-    { name: 'DUBAI DREAM', price6: 35, price8: 50, description: 'Moist chocolate base with crunchy pistachio kanafeh filling complimented with chocolate ganache', label: 'Must-try' },
-    { name: 'RASMALAI', price6: 35, price8: 50, description: 'Soft vanilla base soaked in rasmalai milk with rasmalai fresh cream and nuts', label: 'Best-seller' },
-    { name: 'SPICED CARROT', price6: 27, price8: 41, description: 'Classic spiced carrot base with cream cheese frosting', label: null },
-    { name: 'COFFEE', price6: 27, price8: 42, description: 'Aromatic coffee base complemented by cream cheese frosting', label: null },
-    { name: 'BISCOFF', price6: 29, price8: 44, description: 'Vanilla base with velvety biscoff buttercream and crunchy biscoff bits', label: null },
-    { name: 'COOKIES & CREAM', price6: 29, price8: 43, description: 'Moist chocolate base with crunch oreo bits and delicious vanilla buttercream', label: null },
-    { name: 'RED VELVET', price6: 27, price8: 41, description: 'Classic velvet base with light and fluffy cream cheese frosting', label: null },
-    { name: 'COCONUT RASPBERRY', price6: 27, price8: 42, description: 'Vanilla base with homemade raspberry compote and creamy coconut buttercream', label: null },
-    { name: 'NUTELLA', price6: 27, price8: 42, description: 'Moist chocolate base with rich nutella buttercream topped with hazelnuts', label: null }
+    { name: 'Mango',          price6: 24, price8: 38, price10: 52, description: 'Classic vanilla base paired with rich mango purée and smooth mango fresh cream', label: 'Best-seller' },
+    { name: 'Black Forest',   price6: 25, price8: 40, price10: 55, description: 'Moist chocolate base with cherry compote and delicious fresh cream', label: 'Must-try' },
+    { name: 'Strawberry',     price6: 24, price8: 38, price10: 52, description: 'Moist vanilla base with homemade strawberry purée and fluffy strawberry fresh cream', label: 'Must-try' },
+    { name: 'Rose Pistachio', price6: 29, price8: 48, price10: 67, description: 'Pistachio base, layered with aromatic rose fresh cream and crushed pistachio', label: 'Best-seller' },
+    { name: 'Dubai Dream',    price6: 35, price8: 55, price10: 75, description: 'Moist chocolate base with crunchy pistachio kanafeh filling complimented with chocolate ganache', label: 'Must-try' },
+    { name: 'Rasmalai',       price6: 35, price8: 55, price10: 75, description: 'Soft vanilla base soaked in rasmalai milk with rasmalai fresh cream and nuts', label: 'Best-seller' },
+    { name: 'Pineapple',      price6: 24, price8: 38, price10: 52, description: 'Vanilla base with light pineapple fresh cream and juicy pineapple chunks', label: null },
+    { name: 'Vanilla',        price6: 24, price8: 38, price10: 52, description: 'Classic vanilla base with light and fluffy vanilla buttercream', label: null },
+    { name: 'White Forest',   price6: 25, price8: 40, price10: 55, description: 'Vanilla base with cherry compote complemented by delicate fresh cream', label: null },
+    { name: 'Chocolate',      price6: 25, price8: 40, price10: 55, description: 'Moist chocolate base with rich chocolate buttercream and sprinkle of chocolate chips', label: null },
+    { name: 'Caramel',        price6: 27, price8: 44, price10: 62, description: 'Moist chocolate base with salted caramel cream', label: null },
+    { name: 'Spiced Carrot',  price6: 27, price8: 44, price10: 62, description: 'Classic spiced carrot base with cream cheese frosting', label: null },
+    { name: 'Coffee',         price6: 27, price8: 44, price10: 62, description: 'Aromatic coffee base complemented by cream cheese frosting', label: null },
+    { name: 'Red Velvet',     price6: 27, price8: 44, price10: 62, description: 'Classic velvet base with light and fluffy cream cheese frosting', label: null },
+    { name: 'Coconut Raspberry', price6: 27, price8: 44, price10: 62, description: 'Vanilla base with homemade raspberry compote and creamy coconut buttercream', label: null },
+    { name: 'Nutella',        price6: 27, price8: 44, price10: 62, description: 'Moist chocolate base with rich nutella buttercream topped with hazelnuts', label: null },
+    { name: 'Biscoff',        price6: 29, price8: 48, price10: 67, description: 'Vanilla base with velvety biscoff buttercream and crunchy biscoff bits', label: null },
+    { name: 'Biscoff',        price6: 29, price8: 48, price10: 67, description: 'Vanilla base with velvety biscoff buttercream and crunchy biscoff bits', label: null },
+    { name: 'Cookies & Cream', price6: 29, price8: 48,price10: 67, description: 'Moist chocolate base with crunch oreo bits and delicious vanilla buttercream', label: null },
+    { name: 'Chocolate Truffle', price6: 25, price8: 40,price10: 55, description: 'Moist chocolate base with rich chocolate ganache', label: null },
   ]
 };
 
@@ -114,7 +117,6 @@ export default function CakesForAllOccasionsPage() {
         fontStyle: 'italic',
         margin: 0
       }}>
-        All our cakes are available in 6" & 8". Serves 8-10 & 16-20.<br/>
         For anything beyond that you can custom order them.
       </p>
     </div>

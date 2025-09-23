@@ -4,7 +4,7 @@ import CakesForAllOccasionsPage from "./pages/CakesForAllOccasionsPage";
 import PartyFavoritesPage from "./pages/PartyFavoritesPage";
 import CustomThemedCakesPage from "./pages/CustomThemedCakesPage";
 import BouquetsPage from "./pages/BouquetsPage";
-
+import TresLechesPage from "./pages/TresLechesPage"
 export default function SectionPage() {
   const { sect } = useParams();
   const section = SITE.sections[sect];
@@ -15,7 +15,6 @@ export default function SectionPage() {
     return null;
   }
 
-  // Route to appropriate page component
   switch (sect) {
     case 'cakesForAllOccasions':
       return <CakesForAllOccasionsPage />;
@@ -25,6 +24,8 @@ export default function SectionPage() {
       return <CustomThemedCakesPage />;
     case 'bouquets':
       return <BouquetsPage />;
+    case 'tresLeches':
+        return <TresLechesPage />;
     default:
       navigate('/');
       return null;
