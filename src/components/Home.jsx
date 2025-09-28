@@ -1,6 +1,6 @@
 import SectionCard from "./SectionCard";
 import MainFooter from "./MainFooter";
-
+import GalleryCard from "./GalleryCard"
 const sectionsVisible = {
   cakesForAllOccasions: true,
   customThemedCakes: true,
@@ -65,8 +65,8 @@ export default function Home() {
           index={3}
         />
       )}
-
-      <MainFooter />
+    <GalleryCard bgColor="#FFF" textColor="#773953" />
+    <MainFooter />
     </div>
   );
 }
