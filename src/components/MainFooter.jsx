@@ -36,20 +36,6 @@ export default function MainFooter() {
                 }}>
                   +353 89 205 8875
                 </p>
-                <a
-                  href="mailto:hello@zunubakehouse.com"
-                  style={{
-                    color: '#8B7355',
-                    textDecoration: 'none',
-                    fontSize: '1rem',
-                    fontWeight: '400',
-                    transition: 'color 0.2s ease'
-                  }}
-                  onMouseEnter={(e) => e.target.style.color = '#6B4B3A'}
-                  onMouseLeave={(e) => e.target.style.color = '#8B7355'}
-                >
-                  hello@zunubakehouse.com
-                </a>
               </div>
 
               <div style={{
@@ -131,28 +117,7 @@ export default function MainFooter() {
                 gap: '1.5rem',
                 marginBottom: '2rem'
               }}>
-                <a
-                  href="https://facebook.com/zunu.bakehouse"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{
-                    color: '#8B7355',
-                    fontSize: '1.8rem',
-                    transition: 'transform 0.2s ease, color 0.2s ease',
-                    textDecoration: 'none'
-                  }}
-                  onMouseEnter={(e) => {
-                    e.target.style.transform = 'translateY(-3px)';
-                    e.target.style.color = '#4267B2';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.target.style.transform = 'translateY(0)';
-                    e.target.style.color = '#8B7355';
-                  }}
-                >
-                  <BsFacebook />
-                </a>
-
+                
                 <a
                   href="https://instagram.com/zunu.bakehouse"
                   target="_blank"

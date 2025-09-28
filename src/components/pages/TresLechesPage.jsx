@@ -5,44 +5,56 @@ import FlavorItem from "../shared/FlavorItem";
 
 const tresLechesData = {
   // Only packs now
-  packsNote: 'Available in packs of 10 or 20. Mixed boxes on request subject to availability.',
+  packsNote: 'Our melt-in-the-mouth Tres Leches is a true party favourite – soft, fluffy sponge soaked in three kinds of milk and topped with fresh cream. Perfect for celebrations! Available in two tray sizes: Regular (serves 6–8) and Large (serves 12–14).',
   flavors: [
     {
       name: 'Classic Tres Leches',
-      price10: 35,
-      price20: 60,
-      description: 'Traditional milk-soaked sponge with vanilla cream',
-      label: 'Best-seller'
+      sizes: [
+          { label: "Regular", price: 25 },
+          { label: "Large",   price: 50 }
+        ],
+      label: null
     },
     {
       name: 'Mango Tres Leches',
-      price10: 40,
-      price20: 70,
-      description: 'Alphonso mango purée folded into silky cream',
-      label: 'Seasonal'
-    },
-    {
-      name: 'Coffee Tres Leches',
-      price10: 35,
-      price20: 60,
-      description: 'Espresso-kissed sponge with coffee-infused leches',
-      label: 'Popular'
+      sizes: [
+          { label: "Regular", price: 25 },
+          { label: "Large",   price: 50 }
+        ],
+      label: null
     },
     {
       name: 'Rasmalai Tres Leches',
-      price10: 45,
-      price20: 80,
-      description: 'Cardamom-saffron milk with pistachio notes',
-      label: 'Premium'
+      sizes: [
+          { label: "Regular", price: 30 },
+          { label: "Large",   price: 60 }
+        ],
+      label: 'Best-seller'
     },
     {
       name: 'Rose Tres Leches',
-      price10: 35,
-      price20: 60,
-      description: 'Fragrant rose milk with a delicate floral finish',
+      sizes: [
+          { label: "Regular", price: 25 },
+          { label: "Large",   price: 50 }
+        ],
       label: null
     },
-  ]
+    {
+      name: 'Coffee Tres Leches',
+      sizes: [
+          { label: "Regular", price: 28 },
+          { label: "Large",   price: 55 }
+        ],
+      label: null
+    },
+    {
+      name: 'Chocolate Tres Leches',
+      sizes: [
+          { label: "Regular", price: 28 },
+          { label: "Large",   price: 55 }
+        ],
+      label: null
+    },  ]
 };
 
 export default function TresLechesPage() {

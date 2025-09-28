@@ -11,28 +11,38 @@ export default function FlavorItem({ item, sect }) {
 
   const getLabelColor = (label) => {
     switch (label) {
-      case "Best-seller":
-        return "#FF6B6B";
-      case "Must-try":
-        return "#4ECDC4";
-      case "Popular":
-        return "#45B7D1";
-      default:
-        return "#4ECDC4";
+      case "Best-seller": return "#FF6B6B";
+      case "Must-try":    return "#4ECDC4";
+      case "Popular":     return "#45B7D1";
+      default:            return "#4ECDC4";
     }
   };
 
-  // Treat these sections as size-based pricing (show 6/8/10 if present)
+  // Treat these sections as size-based pricing (same as before)
   const isSizeBased =
     sect === "cakesForAllOccasions" || sect === "tresLeches";
 
-  const buildSizePriceText = () => {
+  // NEW: prefers item.sizes[] when provided, else falls back to inch fields
+  const buildPriceText = () => {
+    if (Array.isArray(item.sizes) && item.sizes.length > 0) {
+      // Expect [{ label: "Regular", price: 35 }, { label: "Large", price: 60 }]
+      return item.sizes
+        .filter(s => s && s.label && (s.price ?? null) != null)
+        .map(s => `${s.label} - €${s.price}`)
+        .join(" / ");
+    }
+    // Fallback: inch-based
     const parts = [];
-    if (item.price6 != null) parts.push(`6" - €${item.price6}`);
-    if (item.price8 != null) parts.push(`8" - €${item.price8}`);
+    if (item.price6 != null)  parts.push(`6" - €${item.price6}`);
+    if (item.price8 != null)  parts.push(`8" - €${item.price8}`);
     if (item.price10 != null) parts.push(`10" - €${item.price10}`);
     return parts.join(" / ");
   };
+
+  // Helper: decide if there is any size-based price to show at all
+  const hasAnySizePrice =
+    (Array.isArray(item.sizes) && item.sizes.some(s => (s?.price ?? null) != null)) ||
+    item.price6 != null || item.price8 != null || item.price10 != null;
 
   return (
     <div
@@ -98,7 +108,7 @@ export default function FlavorItem({ item, sect }) {
           </div>
 
           {/* Price Section - Desktop */}
-          {isSizeBased && (item.price6 != null || item.price8 != null) ? (
+          {isSizeBased && hasAnySizePrice ? (
             <div style={{ textAlign: "right", marginLeft: "1rem" }}>
               <span
                 style={{
@@ -109,22 +119,24 @@ export default function FlavorItem({ item, sect }) {
                   whiteSpace: "nowrap",
                 }}
               >
-                {buildSizePriceText()}
+                {buildPriceText()}
               </span>
             </div>
           ) : (
-            <span
-              style={{
-                color: "#000",
-                fontWeight: "700",
-                fontSize: "1.2rem",
-                fontStyle: "italic",
-                marginLeft: "1rem",
-                whiteSpace: "nowrap",
-              }}
-            >
-              FROM €{item.price}
-            </span>
+            item.price != null && (
+              <span
+                style={{
+                  color: "#000",
+                  fontWeight: "700",
+                  fontSize: "1.2rem",
+                  fontStyle: "italic",
+                  marginLeft: "1rem",
+                  whiteSpace: "nowrap",
+                }}
+              >
+                FROM €{item.price}
+              </span>
+            )
           )}
         </div>
       )}
@@ -157,7 +169,7 @@ export default function FlavorItem({ item, sect }) {
             </h3>
 
             {/* Price Section - Mobile */}
-            {isSizeBased && (item.price6 != null || item.price8 != null) ? (
+            {isSizeBased && hasAnySizePrice ? (
               <div style={{ textAlign: "right" }}>
                 <span
                   style={{
@@ -168,21 +180,23 @@ export default function FlavorItem({ item, sect }) {
                     whiteSpace: "nowrap",
                   }}
                 >
-                  {buildSizePriceText()}
+                  {buildPriceText()}
                 </span>
               </div>
             ) : (
-              <span
-                style={{
-                  color: "#000",
-                  fontWeight: "700",
-                  fontSize: "1rem",
-                  fontStyle: "italic",
-                  whiteSpace: "nowrap",
-                }}
-              >
-                FROM €{item.price}
-              </span>
+              item.price != null && (
+                <span
+                  style={{
+                    color: "#000",
+                    fontWeight: "700",
+                    fontSize: "1rem",
+                    fontStyle: "italic",
+                    whiteSpace: "nowrap",
+                  }}
+                >
+                  FROM €{item.price}
+                </span>
+              )
             )}
           </div>
 

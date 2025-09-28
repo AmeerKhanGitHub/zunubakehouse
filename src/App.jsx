@@ -5,6 +5,8 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Home from "./components/Home";
 import SectionPage from "./components/SectionPage";
+import GalleryPage from "./components/pages/GalleryPage";
+import ScrollToTop from "./components/ScrollToTop";
 
 export default function App() {
   useEffect(() => {
@@ -18,10 +20,12 @@ export default function App() {
   return (
     <>
       <Header />
-      <div style={{ paddingTop: '10vh', paddingBottom: '0' }}>  {/* Removed bottom padding */}
+      <div style={{ paddingTop: '10vh', paddingBottom: '0' }}>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/section/:sect" element={<SectionPage />} />
+          <Route path="/gallery" element={<GalleryPage />} />   {/* <-- add this */}
           <Route path="*" element={<Home />} />
         </Routes>
       </div>
