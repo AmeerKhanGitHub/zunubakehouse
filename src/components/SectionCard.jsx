@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import { useNavigate } from "react-router-dom";
 import { SITE } from "../constants/values";
-import { BsWhatsapp } from "react-icons/bs";
+import { BsWhatsapp, BsChevronRight } from "react-icons/bs"; // Added BsChevronRight
 
 export default function SectionCard({
   sectionKey,
@@ -33,10 +33,6 @@ export default function SectionCard({
 
   const isReversed = index % 2 === 1;
 
-  const handleCardClick = () => {
-    if (!disableNavigation) navigate(`/section/${sectionKey}`);
-  };
-
   const textContent = (
     <Col md={5} style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-start' }}>
       <h2 style={{
@@ -54,14 +50,51 @@ export default function SectionCard({
         fontSize: isMobile ? '0.9rem' : '1rem',
         lineHeight: 1.5,
         textAlign: 'left',
-        marginBottom: disableNavigation ? '0.5rem' : 0
+        marginBottom: disableNavigation ? '0.5rem' : '1rem' // Changed: always add margin if not disabled
       }}>
         {description}
       </p>
 
+      {/* Explore Options Button - only for navigable sections */}
+      {!disableNavigation && (
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            navigate(`/section/${sectionKey}`);
+          }}
+          style={{
+            background: textColor,
+            color: '#fff',
+            border: 'none',
+            borderRadius: '20px',
+            padding: isMobile ? '8px 18px' : '10px 24px',
+            fontSize: isMobile ? '0.85rem' : '0.95rem',
+            fontWeight: '600',
+            cursor: 'pointer',
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '8px',
+            alignSelf: 'flex-start',
+            transition: 'all 0.2s ease',
+            boxShadow: '0 2px 8px rgba(0,0,0,0.15)'
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.transform = 'translateY(-2px)';
+            e.currentTarget.style.boxShadow = '0 4px 12px rgba(0,0,0,0.2)';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.transform = 'translateY(0)';
+            e.currentTarget.style.boxShadow = '0 2px 8px rgba(0,0,0,0.15)';
+          }}
+        >
+          Explore Options
+          <BsChevronRight style={{ fontSize: '1rem' }} />
+        </button>
+      )}
+
+      {/* WhatsApp section for custom cakes */}
       {disableNavigation && whatsappLink && (
         <div
-          // action row directly below description
           onClick={(e) => e.stopPropagation()}
           style={{
             display: 'flex',
@@ -139,21 +172,10 @@ export default function SectionCard({
       style={{
         backgroundColor: bgColor,
         borderRadius: '1rem',
-        cursor: disableNavigation ? 'default' : 'pointer',
+        cursor: 'default',
         transition: 'transform 0.2s ease, box-shadow 0.2s ease',
         boxShadow: '0 4px 16px rgba(60,20,50,0.06)',
         marginBottom: '2rem'
-      }}
-      onClick={handleCardClick}
-      onMouseEnter={(e) => {
-        if (disableNavigation) return;
-        e.currentTarget.style.transform = 'translateY(-2px)';
-        e.currentTarget.style.boxShadow = '0 8px 25px rgba(60,20,50,0.12)';
-      }}
-      onMouseLeave={(e) => {
-        if (disableNavigation) return;
-        e.currentTarget.style.transform = 'translateY(0)';
-        e.currentTarget.style.boxShadow = '0 4px 16px rgba(60,20,50,0.06)';
       }}
     >
       <Row className="align-items-start">

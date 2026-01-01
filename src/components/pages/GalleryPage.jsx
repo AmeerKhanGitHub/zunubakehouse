@@ -1,6 +1,7 @@
 // GalleryPage.jsx (new child page)
 import { useState } from "react";
 import { Container, Row, Col, Card, Modal } from 'react-bootstrap';
+import MainFooter from "../MainFooter";
 
 // Master list (can move to a shared file)
 const ALL_IMAGES = [
@@ -20,6 +21,22 @@ const ALL_IMAGES = [
   "/images/Gallery/17.jpg",
   "/images/Gallery/18.jpg",
   "/images/Gallery/19.jpg",
+  "/images/Gallery/20.jpg",
+  "/images/Gallery/21.jpg",
+  "/images/Gallery/22.jpg",
+  "/images/Gallery/23.jpg",
+  "/images/Gallery/24.jpg",
+  "/images/Gallery/25.jpg",
+  "/images/Gallery/26.jpg",
+  "/images/Gallery/27.jpg",
+  "/images/Gallery/28.jpg",
+  "/images/Gallery/29.jpg",
+  "/images/Gallery/30.jpg",
+  "/images/Gallery/31.jpg",
+  "/images/Gallery/32.jpg",
+  "/images/Gallery/33.jpg",
+  "/images/Gallery/34.jpg",
+  "/images/Gallery/35.jpg",
 ];
 
 // Optional: filenames to hide
@@ -38,7 +55,7 @@ export default function GalleryPage() {
   const next = () => setCurrent(i => (i < images.length - 1 ? i + 1 : 0));
 
   return (
-    <div style={{ background: "#FFF", minHeight: "100vh", paddingBottom: '10vh' }}>
+    <div style={{ background: "#FFF3E0", minHeight: "100vh", paddingBottom: '15vh' }}>
       <Container style={{ paddingTop: '2rem' }}>
         <div style={{ maxWidth: 1080, margin: "0 auto 1.25rem" }}>
           <h1 style={{ color: '#773953', fontWeight: 700, fontSize: '1.8rem', letterSpacing: '0.5px', marginBottom: '0.5rem' }}>
@@ -74,6 +91,7 @@ export default function GalleryPage() {
           </div>
         </Modal>
       </Container>
+      <MainFooter />
     </div>
   );
 }

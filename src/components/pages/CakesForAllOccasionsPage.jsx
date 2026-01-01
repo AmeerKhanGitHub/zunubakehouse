@@ -1,18 +1,14 @@
+// components/pages/CakesForAllOccasionsPage.jsx
 import { useState, useEffect } from "react";
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 import MainFooter from "../MainFooter";
 import FlavorItem from "../shared/FlavorItem";
 
 const cakesData = {
   sizes: [
-    { size: '6"', serves: 'Serves 8-10' },
-    { size: '8"', serves: 'Serves 16-20' },
-    { size: '10"', serves: 'Serves 24-30' }
-  ],
-  addOns: [
-      { name: 'Happy Birthday Topper', price: 1 },
-      { name: 'Happy Anniversary Topper', price: 1 },
-      { name: 'Personalized Message', price: 3 }
+    { size: '6"', serves: '8-10' },
+    { size: '8"', serves: '16-20' },
+    { size: '10"', serves: '24-30' }
   ],
   flavors: [
     { name: 'Mango',          price6: 24, price8: 38, price10: 52, description: 'Classic vanilla base paired with rich mango purée and smooth mango fresh cream', label: 'Best-seller' },
@@ -32,9 +28,8 @@ const cakesData = {
     { name: 'Coconut Raspberry', price6: 27, price8: 44, price10: 62, description: 'Vanilla base with homemade raspberry compote and creamy coconut buttercream', label: null },
     { name: 'Nutella',        price6: 27, price8: 44, price10: 62, description: 'Moist chocolate base with rich nutella buttercream topped with hazelnuts', label: null },
     { name: 'Biscoff',        price6: 29, price8: 48, price10: 67, description: 'Vanilla base with velvety biscoff buttercream and crunchy biscoff bits', label: null },
-    { name: 'Biscoff',        price6: 29, price8: 48, price10: 67, description: 'Vanilla base with velvety biscoff buttercream and crunchy biscoff bits', label: null },
-    { name: 'Cookies & Cream', price6: 29, price8: 48,price10: 67, description: 'Moist chocolate base with crunch oreo bits and delicious vanilla buttercream', label: null },
-    { name: 'Chocolate Truffle', price6: 25, price8: 40,price10: 55, description: 'Moist chocolate base with rich chocolate ganache', label: null },
+    { name: 'Cookies & Cream', price6: 29, price8: 48, price10: 67, description: 'Moist chocolate base with crunch oreo bits and delicious vanilla buttercream', label: null },
+    { name: 'Chocolate Truffle', price6: 25, price8: 40, price10: 55, description: 'Moist chocolate base with rich chocolate ganache', label: null },
   ]
 };
 
@@ -68,110 +63,79 @@ export default function CakesForAllOccasionsPage() {
         fontWeight: "700",
         fontSize: isMobile ? '1.4rem' : '1.8rem',
         textAlign: 'center',
-        marginBottom: '2rem',
+        marginBottom: '1.5rem',
         letterSpacing: '1px'
       }}>
         SIZES
       </h2>
-      <div style={{
-        display: 'flex',
-        justifyContent: 'center',
-        gap: isMobile ? '1rem' : '2rem',
-        flexWrap: 'wrap',
-        marginBottom: '1rem'
-      }}>
-        {cakesData.sizes?.map((sizeOption, i) => (
-          <div key={i} style={{
-            background: 'rgba(255,255,255,0.9)',
-            borderRadius: '12px',
-            padding: isMobile ? '1rem' : '1.5rem',
-            textAlign: 'center',
-            boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
-            border: '2px solid rgba(107, 75, 58, 0.1)',
-            minWidth: '120px'
-          }}>
-            <h3 style={{
-              color: '#000',
-              fontWeight: '700',
-              fontSize: isMobile ? '1.2rem' : '1.5rem',
-              margin: '0 0 0.5rem 0'
-            }}>
-              {sizeOption.size}
-            </h3>
-            <p style={{
-              color: '#666',
-              fontSize: isMobile ? '0.9rem' : '1rem',
-              margin: '0 0 0.5rem 0',
-              textTransform: 'uppercase',
-              letterSpacing: '0.5px'
-            }}>
-              SERVES {sizeOption.serves}
-            </p>
-          </div>
-        ))}
-      </div>
-      <p style={{
-        textAlign: 'center',
-        color: '#666',
-        fontSize: isMobile ? '0.85rem' : '0.95rem',
-        fontStyle: 'italic',
-        margin: 0
-      }}>
-        For anything beyond that you can custom order them.
-      </p>
-    </div>
-  );
 
-  const AddOnsSection = () => (
-    <div style={{ marginBottom: '3rem' }}>
-      <h2 style={{
-        color: '#000',
-        fontWeight: "700",
-        fontSize: isMobile ? '1.4rem' : '1.8rem',
-        textAlign: 'center',
-        marginBottom: '2rem',
-        letterSpacing: '1px'
+      {/* Compact table */}
+      <div style={{
+        maxWidth: isMobile ? '100%' : '500px',
+        margin: '0 auto 1rem',
+        background: 'rgba(255,255,255,0.9)',
+        borderRadius: '12px',
+        padding: isMobile ? '1rem' : '1.5rem',
+        boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+        border: '2px solid rgba(107, 75, 58, 0.1)'
       }}>
-        ADD ONS
-      </h2>
-      <Row className="justify-content-center">
-        {cakesData.addOns?.map((addon, i) => (
-          <Col key={i} xs={12} sm={6} md={4} className="mb-3">
-            <div style={{
-              background: 'rgba(255,255,255,0.9)',
-              borderRadius: '12px',
-              padding: isMobile ? '1rem' : '1.5rem',
-              textAlign: 'center',
-              boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
-              border: '2px solid rgba(107, 75, 58, 0.1)',
-              height: '100%',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center'
-            }}>
-              <h4 style={{
+        <table style={{
+          width: '100%',
+          borderCollapse: 'collapse',
+          textAlign: 'center'
+        }}>
+          <thead>
+            <tr>
+              <th style={{
+                padding: isMobile ? '0.5rem' : '0.75rem',
+                borderBottom: '2px solid rgba(107, 75, 58, 0.2)',
                 color: '#000',
+                fontWeight: '700',
+                fontSize: isMobile ? '0.95rem' : '1.1rem',
+                letterSpacing: '0.5px'
+              }}>
+                SIZE
+              </th>
+              {cakesData.sizes.map((s, i) => (
+                <th key={i} style={{
+                  padding: isMobile ? '0.5rem' : '0.75rem',
+                  borderBottom: '2px solid rgba(107, 75, 58, 0.2)',
+                  color: '#000',
+                  fontWeight: '700',
+                  fontSize: isMobile ? '1rem' : '1.2rem'
+                }}>
+                  {s.size}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style={{
+                padding: isMobile ? '0.75rem 0.5rem' : '1rem 0.75rem',
+                color: '#666',
                 fontWeight: '600',
-                fontSize: isMobile ? '1rem' : '1.2rem',
-                margin: '0 0 0.5rem 0',
+                fontSize: isMobile ? '0.85rem' : '0.95rem',
                 textTransform: 'uppercase',
                 letterSpacing: '0.5px'
               }}>
-                {addon.name}
-              </h4>
-              <p style={{
-                color: '#000',
-                fontWeight: '700',
-                fontSize: isMobile ? '1rem' : '1.1rem',
-                margin: 0,
-                fontStyle: 'italic'
-              }}>
-                +€{addon.price}
-              </p>
-            </div>
-          </Col>
-        ))}
-      </Row>
+                Serves
+              </td>
+              {cakesData.sizes.map((s, i) => (
+                <td key={i} style={{
+                  padding: isMobile ? '0.75rem 0.5rem' : '1rem 0.75rem',
+                  color: '#333',
+                  fontWeight: '600',
+                  fontSize: isMobile ? '0.9rem' : '1rem'
+                }}>
+                  {s.serves}
+                </td>
+              ))}
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
       <p style={{
         textAlign: 'center',
         color: '#666',
@@ -179,7 +143,7 @@ export default function CakesForAllOccasionsPage() {
         fontStyle: 'italic',
         margin: 0
       }}>
-        Get your personalized message inscribed on your cake!
+        For larger sizes, please contact us for a custom order.
       </p>
     </div>
   );
@@ -189,13 +153,12 @@ export default function CakesForAllOccasionsPage() {
       style={{
         background: "#E6E6FA",
         minHeight: "100vh",
-        paddingBottom: '10vh'
+        paddingBottom: '12vh'
       }}
     >
       <Container style={{ paddingTop: '2rem' }}>
         <div style={{ maxWidth: 800, margin: "0 auto 4rem" }}>
           <SizesSection />
-          <AddOnsSection />
 
           <h2 style={{
             color: '#000',
@@ -205,7 +168,7 @@ export default function CakesForAllOccasionsPage() {
             marginBottom: '2rem',
             letterSpacing: '1px'
           }}>
-            FLAVORS
+            FLAVOURS
           </h2>
 
           {sortedFlavors.map((item, i) => (
