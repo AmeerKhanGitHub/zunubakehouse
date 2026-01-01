@@ -4,7 +4,6 @@ import MainFooter from "../MainFooter";
 import FlavorItem from "../shared/FlavorItem";
 
 const tresLechesData = {
-  // Only packs now
   packsNote: 'Our melt-in-the-mouth Tres Leches is a true party favourite – soft, fluffy sponge soaked in three kinds of milk and topped with fresh cream. Perfect for celebrations! Available in two tray sizes: Regular (serves 6–8) and Large (serves 12–14).',
   flavors: [
     {
@@ -42,7 +41,7 @@ const tresLechesData = {
     {
       name: 'Coffee Tres Leches',
       sizes: [
-          { label: "Regular", price: 28 },
+          { label: "Regular", price: 30 },
           { label: "Large",   price: 55 }
         ],
       label: null
@@ -50,7 +49,7 @@ const tresLechesData = {
     {
       name: 'Chocolate Tres Leches',
       sizes: [
-          { label: "Regular", price: 28 },
+          { label: "Regular", price: 30 },
           { label: "Large",   price: 55 }
         ],
       label: null

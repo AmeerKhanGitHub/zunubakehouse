@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import { BsArrowLeft } from "react-icons/bs";
+import { BsHouse } from "react-icons/bs";
 import { SITE } from "../constants/values";
 
 export default function Header() {
@@ -132,7 +132,7 @@ export default function Header() {
         display: 'flex',
         justifyContent: 'flex-end'
       }}>
-        {isChildPage && (
+        {!isHomePage && (
           <button
             onClick={() => navigate('/')}
             style={{
@@ -151,7 +151,7 @@ export default function Header() {
             onMouseEnter={(e) => e.target.style.color = '#8a6b6f'}
             onMouseLeave={(e) => e.target.style.color = '#b2868a'}
           >
-            <BsArrowLeft />
+            <BsHouse />
           </button>
         )}
       </div>

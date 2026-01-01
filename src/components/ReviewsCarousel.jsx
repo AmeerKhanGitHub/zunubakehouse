@@ -265,32 +265,64 @@ export default function ReviewsCarousel() {
         )}
       </div>
 
-      {/* Dots indicator - only show if more than 1 review */}
+      {/* Dots indicator with Smart Display - only show if more than 1 review */}
       {REVIEWS.length > 1 && (
         <div style={{
           display: "flex",
           justifyContent: "center",
+          alignItems: "center",
           gap: "8px",
-          marginTop: "1.5rem"
+          marginTop: "1.5rem",
+          flexWrap: "wrap"
         }}>
-          {REVIEWS.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => {
-                setCurrent(i);
-                setIsAutoPlaying(false);
-              }}
-              style={{
-                width: current === i ? "24px" : "8px",
-                height: "8px",
-                borderRadius: "4px",
-                border: "none",
-                background: current === i ? "#CD5C8A" : "#ddd",
-                cursor: "pointer",
-                transition: "all 0.3s"
-              }}
-            />
-          ))}
+          {REVIEWS.map((_, i) => {
+            // On mobile with many reviews, show only dots near current index
+            if (isMobile && REVIEWS.length > 7) {
+              const isNearCurrent = Math.abs(i - current) <= 2;
+              const isFirst = i === 0;
+              const isLast = i === REVIEWS.length - 1;
+
+              if (!isNearCurrent && !isFirst && !isLast) {
+                // Show ellipsis for gaps
+                if (i === current - 3 || i === current + 3) {
+                  return (
+                    <span
+                      key={i}
+                      style={{
+                        color: "#999",
+                        fontSize: "1.2rem",
+                        lineHeight: "8px",
+                        userSelect: "none"
+                      }}
+                    >
+                      ⋯
+                    </span>
+                  );
+                }
+                return null;
+              }
+            }
+
+            return (
+              <button
+                key={i}
+                onClick={() => {
+                  setCurrent(i);
+                  setIsAutoPlaying(false);
+                }}
+                style={{
+                  width: current === i ? "24px" : "8px",
+                  height: "8px",
+                  borderRadius: "4px",
+                  border: "none",
+                  background: current === i ? "#CD5C8A" : "#ddd",
+                  cursor: "pointer",
+                  transition: "all 0.3s",
+                  flexShrink: 0
+                }}
+              />
+            );
+          })}
         </div>
       )}
 

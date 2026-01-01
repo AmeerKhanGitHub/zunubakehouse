@@ -157,7 +157,7 @@ export default function MainFooter() {
             margin: 0,
             fontStyle: 'italic'
           }}>
-            © 2025 Zunu Bakehouse | Made with 💝 for sweet moments
+            © 2026 Zunu Bakehouse | Made with 💝 for sweet moments
           </p>
         </div>
       </Container>

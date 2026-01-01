@@ -7,37 +7,37 @@ import { useNavigate } from "react-router-dom";
 // Featured gallery images for the carousel
 const GALLERY_IMAGES = [
   "/images/Gallery/1.jpeg",
-    "/images/Gallery/2.jpeg",
-    "/images/Gallery/3.jpeg",
-    "/images/Gallery/4.jpeg",
-    "/images/Gallery/5.jpeg",
-    "/images/Gallery/6.jpeg",
-    "/images/Gallery/7.jpeg",
-    "/images/Gallery/8.jpeg",
-    "/images/Gallery/9.jpeg",
-    "/images/Gallery/13.jpg",
-    "/images/Gallery/14.jpg",
-    "/images/Gallery/15.jpg",
-    "/images/Gallery/16.jpg",
-    "/images/Gallery/17.jpg",
-    "/images/Gallery/18.jpg",
-    "/images/Gallery/19.jpg",
-    "/images/Gallery/20.jpg",
-    "/images/Gallery/21.jpg",
-    "/images/Gallery/22.jpg",
-    "/images/Gallery/23.jpg",
-    "/images/Gallery/24.jpg",
-    "/images/Gallery/25.jpg",
-    "/images/Gallery/26.jpg",
-    "/images/Gallery/27.jpg",
-    "/images/Gallery/28.jpg",
-    "/images/Gallery/29.jpg",
-    "/images/Gallery/30.jpg",
-    "/images/Gallery/31.jpg",
-    "/images/Gallery/32.jpg",
-    "/images/Gallery/33.jpg",
-    "/images/Gallery/34.jpg",
-    "/images/Gallery/35.jpg",
+  "/images/Gallery/2.jpeg",
+  "/images/Gallery/3.jpeg",
+  "/images/Gallery/4.jpeg",
+  "/images/Gallery/5.jpeg",
+  "/images/Gallery/6.jpeg",
+  "/images/Gallery/7.jpeg",
+  "/images/Gallery/8.jpeg",
+  "/images/Gallery/9.jpeg",
+  "/images/Gallery/13.jpg",
+  "/images/Gallery/14.jpg",
+  "/images/Gallery/15.jpg",
+  "/images/Gallery/16.jpg",
+  "/images/Gallery/17.jpg",
+  "/images/Gallery/18.jpg",
+  "/images/Gallery/19.jpg",
+  "/images/Gallery/20.jpg",
+  "/images/Gallery/21.jpg",
+  "/images/Gallery/22.jpg",
+  "/images/Gallery/23.jpg",
+  "/images/Gallery/24.jpg",
+  "/images/Gallery/25.jpg",
+  "/images/Gallery/26.jpg",
+  "/images/Gallery/27.jpg",
+  "/images/Gallery/28.jpg",
+  "/images/Gallery/29.jpg",
+  "/images/Gallery/30.jpg",
+  "/images/Gallery/31.jpg",
+  "/images/Gallery/32.jpg",
+  "/images/Gallery/33.jpg",
+  "/images/Gallery/34.jpg",
+  "/images/Gallery/35.jpg",
 ];
 
 export default function GalleryCarousel() {
@@ -234,32 +234,64 @@ export default function GalleryCarousel() {
         )}
       </div>
 
-      {/* Dots Indicator */}
+      {/* Dots Indicator with Smart Display */}
       {GALLERY_IMAGES.length > 1 && (
         <div style={{
           display: "flex",
           justifyContent: "center",
+          alignItems: "center",
           gap: "8px",
-          marginBottom: "2rem"
+          marginBottom: "2rem",
+          flexWrap: "wrap"
         }}>
-          {GALLERY_IMAGES.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => {
-                setCurrent(i);
-                setIsAutoPlaying(false);
-              }}
-              style={{
-                width: current === i ? "32px" : "10px",
-                height: "10px",
-                borderRadius: "5px",
-                border: "none",
-                background: current === i ? "#CD5C8A" : "#ddd",
-                cursor: "pointer",
-                transition: "all 0.3s"
-              }}
-            />
-          ))}
+          {GALLERY_IMAGES.map((_, i) => {
+            // On mobile with many images, show only dots near current index
+            if (isMobile && GALLERY_IMAGES.length > 10) {
+              const isNearCurrent = Math.abs(i - current) <= 2;
+              const isFirst = i === 0;
+              const isLast = i === GALLERY_IMAGES.length - 1;
+
+              if (!isNearCurrent && !isFirst && !isLast) {
+                // Show ellipsis for gaps
+                if (i === current - 3 || i === current + 3) {
+                  return (
+                    <span
+                      key={i}
+                      style={{
+                        color: "#999",
+                        fontSize: "1.2rem",
+                        lineHeight: "10px",
+                        userSelect: "none"
+                      }}
+                    >
+                      ⋯
+                    </span>
+                  );
+                }
+                return null;
+              }
+            }
+
+            return (
+              <button
+                key={i}
+                onClick={() => {
+                  setCurrent(i);
+                  setIsAutoPlaying(false);
+                }}
+                style={{
+                  width: current === i ? (isMobile ? "24px" : "32px") : (isMobile ? "8px" : "10px"),
+                  height: isMobile ? "8px" : "10px",
+                  borderRadius: "5px",
+                  border: "none",
+                  background: current === i ? "#CD5C8A" : "#ddd",
+                  cursor: "pointer",
+                  transition: "all 0.3s",
+                  flexShrink: 0
+                }}
+              />
+            );
+          })}
         </div>
       )}
 
