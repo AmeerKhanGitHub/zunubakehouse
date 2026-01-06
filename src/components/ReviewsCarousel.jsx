@@ -12,16 +12,33 @@ const REVIEWS = [
     category: "Takeaway | Other | €20–30"
   },
   {
-    author: "Ardra Santhosh",
+    author: "Monisha Mani",
     rating: 5,
-    text: '', // Empty text - just stars
+    text: "I’m a big fan of Tanya’s tres leches. It was delicious as usual, perfectly moist and full of flavor. One serving wasn’t enough and I definitely wanted more.",
     category: "Takeaway"
-  }
+  },
+  {
+    author: "Anushka Madan",
+    rating: 5,
+    text: "All the cake and tres leches flavors I’ve tried have been exceptionally delicious and truly irresistible. I look forward to ordering more cakes. ❤️",
+    category: "€1–10"
+  },
+  {
+    author: "Sasikumar Samynathan",
+    rating: 5,
+    text: "The cake was awesome taste. Since it was very late order but danya was accepted and made the cake. That's really great. All my friends was saying WOW!!!!! Thanks danya.",
+    category: "Takeaway"
+  },
+  {
+    author: "Ayush Madan",
+    rating: 5,
+    text: "Amazing cakes!! Loved the Tres Leches ❤️",
+    category: "€1–10"
+  },
 ];
 
-// UPDATE THESE as you get more reviews
-const OVERALL_RATING = 5.0;
-const TOTAL_REVIEWS = 2;
+const OVERALL_RATING = 4.9;
+const TOTAL_REVIEWS = 10;
 
 const GOOGLE_REVIEW_LINK = "https://share.google/IHG9kLajFTE3qSDCq";
 
@@ -82,7 +99,7 @@ export default function ReviewsCarousel() {
         What Our Customers Say
       </h2>
 
-      {/* Overall Rating Display */}
+      {/* Overall Rating Display - FIXED WITH PARTIAL STARS */}
       <div style={{
         display: "flex",
         flexDirection: "column",
@@ -102,16 +119,37 @@ export default function ReviewsCarousel() {
           }}>
             {OVERALL_RATING.toFixed(1)}
           </span>
-          <div style={{
-            display: "flex",
-            gap: "4px"
-          }}>
-            {[...Array(5)].map((_, i) => (
-              <BsStarFill key={i} style={{
-                color: "#FFD700",
-                fontSize: isMobile ? "1.1rem" : "1.3rem"
-              }} />
-            ))}
+          <div style={{ display: "flex", gap: "4px" }}>
+            {[...Array(5)].map((_, i) => {
+              if (i < Math.floor(OVERALL_RATING)) {
+                // Full star
+                return <BsStarFill key={i} style={{ color: "#FFD700", fontSize: isMobile ? "1.1rem" : "1.3rem" }} />;
+              } else if (i === Math.floor(OVERALL_RATING) && OVERALL_RATING % 1 >= 0.3) {
+                // Half star: overlay full on empty with clip (90% for 4.9)
+                const halfPercent = OVERALL_RATING % 1 * 100;
+                return (
+                  <div key={i} style={{
+                    position: "relative",
+                    width: isMobile ? 22 : 26,
+                    height: isMobile ? 22 : 26,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center"
+                  }}>
+                    <BsStarFill style={{ color: "#e0e0e0", fontSize: isMobile ? "1.1rem" : "1.3rem" }} />
+                    <BsStarFill style={{
+                      color: "#FFD700",
+                      fontSize: isMobile ? "1.1rem" : "1.3rem",
+                      position: "absolute",
+                      clipPath: `inset(0 calc(100% - ${halfPercent}%) 0 0)`
+                    }} />
+                  </div>
+                );
+              } else {
+                // Empty star
+                return <BsStarFill key={i} style={{ color: "#e0e0e0", fontSize: isMobile ? "1.1rem" : "1.3rem" }} />;
+              }
+            })}
           </div>
         </div>
         <span style={{
