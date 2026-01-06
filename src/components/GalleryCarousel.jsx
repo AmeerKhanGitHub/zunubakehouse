@@ -5,40 +5,22 @@ import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
 
 // Featured gallery images for the carousel
-const GALLERY_IMAGES = [
-  "/images/Gallery/1.jpeg",
-  "/images/Gallery/2.jpeg",
-  "/images/Gallery/3.jpeg",
-  "/images/Gallery/4.jpeg",
-  "/images/Gallery/5.jpeg",
+let GALLERY_IMAGES = [
   "/images/Gallery/6.jpeg",
-  "/images/Gallery/7.jpeg",
-  "/images/Gallery/8.jpeg",
-  "/images/Gallery/9.jpeg",
-  "/images/Gallery/13.jpg",
-  "/images/Gallery/14.jpg",
-  "/images/Gallery/15.jpg",
-  "/images/Gallery/16.jpg",
-  "/images/Gallery/17.jpg",
   "/images/Gallery/18.jpg",
-  "/images/Gallery/19.jpg",
-  "/images/Gallery/20.jpg",
-  "/images/Gallery/21.jpg",
   "/images/Gallery/22.jpg",
   "/images/Gallery/23.jpg",
-  "/images/Gallery/24.jpg",
-  "/images/Gallery/25.jpg",
   "/images/Gallery/26.jpg",
-  "/images/Gallery/27.jpg",
   "/images/Gallery/28.jpg",
   "/images/Gallery/29.jpg",
-  "/images/Gallery/30.jpg",
-  "/images/Gallery/31.jpg",
   "/images/Gallery/32.jpg",
-  "/images/Gallery/33.jpg",
   "/images/Gallery/34.jpg",
   "/images/Gallery/35.jpg",
+  "/images/Gallery/36.jpg",
+  "/images/Gallery/37.jpg",
 ];
+
+GALLERY_IMAGES = [...GALLERY_IMAGES].reverse();
 
 export default function GalleryCarousel() {
   const navigate = useNavigate();

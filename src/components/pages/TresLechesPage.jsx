@@ -9,48 +9,48 @@ const tresLechesData = {
     {
       name: 'Classic Tres Leches',
       sizes: [
-          { label: "Regular", price: 25 },
-          { label: "Large",   price: 50 }
+          { label: "Regular", price: 35 },
+          { label: "Large",   price: 60 }
         ],
       label: null
     },
     {
       name: 'Mango Tres Leches',
       sizes: [
-          { label: "Regular", price: 25 },
-          { label: "Large",   price: 50 }
+          { label: "Regular", price: 35 },
+          { label: "Large",   price: 60 }
         ],
       label: null
     },
     {
       name: 'Rasmalai Tres Leches',
       sizes: [
-          { label: "Regular", price: 30 },
-          { label: "Large",   price: 60 }
+          { label: "Regular", price: 40 },
+          { label: "Large",   price: 70 }
         ],
       label: 'Best-seller'
     },
     {
       name: 'Rose Tres Leches',
       sizes: [
-          { label: "Regular", price: 25 },
-          { label: "Large",   price: 50 }
+          { label: "Regular", price: 35 },
+          { label: "Large",   price: 60 }
         ],
       label: null
     },
     {
       name: 'Coffee Tres Leches',
       sizes: [
-          { label: "Regular", price: 30 },
-          { label: "Large",   price: 55 }
+          { label: "Regular", price: 40 },
+          { label: "Large",   price: 65 }
         ],
       label: null
     },
     {
       name: 'Chocolate Tres Leches',
       sizes: [
-          { label: "Regular", price: 30 },
-          { label: "Large",   price: 55 }
+          { label: "Regular", price: 40 },
+          { label: "Large",   price: 65 }
         ],
       label: null
     },  ]

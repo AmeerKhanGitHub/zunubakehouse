@@ -4,7 +4,7 @@ import { Container, Row, Col, Card, Modal } from 'react-bootstrap';
 import MainFooter from "../MainFooter";
 
 // Master list (can move to a shared file)
-const ALL_IMAGES = [
+let ALL_IMAGES = [
   "/images/Gallery/1.jpeg",
   "/images/Gallery/2.jpeg",
   "/images/Gallery/3.jpeg",
@@ -37,7 +37,10 @@ const ALL_IMAGES = [
   "/images/Gallery/33.jpg",
   "/images/Gallery/34.jpg",
   "/images/Gallery/35.jpg",
+  "/images/Gallery/36.jpg",
+  "/images/Gallery/37.jpg",
 ];
+ALL_IMAGES = [...ALL_IMAGES].reverse();
 
 // Optional: filenames to hide
 const HIDE = new Set([
