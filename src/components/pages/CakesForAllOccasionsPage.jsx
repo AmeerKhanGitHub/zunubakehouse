@@ -11,26 +11,26 @@ const cakesData = {
     { size: '10"', serves: '25-30' }
   ],
   flavors: [
-    { name: 'Mango',          price6: 25, price8: 40, price10: 55, description: 'Classic vanilla base paired with rich mango purée and smooth mango fresh cream', label: 'Best-seller' },
-    { name: 'Black Forest',   price6: 25, price8: 40, price10: 55, description: 'Moist chocolate base with cherry compote and delicious fresh cream', label: 'Must-try' },
-    { name: 'Strawberry',     price6: 25, price8: 40, price10: 55, description: 'Moist vanilla base with homemade strawberry purée and fluffy strawberry fresh cream', label: 'Must-try' },
-    { name: 'Rose Pistachio', price6: 30, price8: 50, price10: 70, description: 'Pistachio base, layered with aromatic rose fresh cream and crushed pistachio', label: 'Best-seller' },
-    { name: 'Dubai Dream',    price6: 35, price8: 55, price10: 75, description: 'Moist chocolate base with crunchy pistachio kanafeh filling complimented with chocolate ganache', label: 'Must-try' },
-    { name: 'Rasmalai',       price6: 35, price8: 55, price10: 75, description: 'Soft vanilla base soaked in rasmalai milk with rasmalai fresh cream and nuts', label: 'Best-seller' },
-    { name: 'Gulab Jamun',       price6: 35, price8: 55, price10: 75, description: 'Soft vanilla base soaked in rose syrup with cardamom fresh cream and gulab jamun bits and nuts', label: null },
-    { name: 'Pineapple',      price6: 25, price8: 40, price10: 55, description: 'Vanilla base with light pineapple fresh cream and juicy pineapple chunks', label: null },
-    { name: 'Vanilla',        price6: 25, price8: 40, price10: 55, description: 'Classic vanilla base with light and fluffy vanilla buttercream', label: null },
-    { name: 'White Forest',   price6: 25, price8: 40, price10: 55, description: 'Vanilla base with cherry compote complemented by delicate fresh cream', label: null },
-    { name: 'Chocolate',      price6: 25, price8: 40, price10: 55, description: 'Moist chocolate base with rich chocolate buttercream and sprinkle of chocolate chips', label: null },
-    { name: 'Caramel',        price6: 30, price8: 45, price10: 65, description: 'Moist chocolate base with salted caramel cream', label: null },
-    { name: 'Spiced Carrot',  price6: 30, price8: 45, price10: 65, description: 'Classic spiced carrot base with cream cheese frosting', label: null },
-    { name: 'Coffee',         price6: 30, price8: 45, price10: 65, description: 'Aromatic coffee base complemented by cream cheese frosting', label: null },
-    { name: 'Red Velvet',     price6: 30, price8: 45, price10: 65, description: 'Classic velvet base with light and fluffy cream cheese frosting', label: null },
-    { name: 'Coconut Raspberry', price6: 30, price8: 45, price10: 65, description: 'Vanilla base with homemade raspberry compote and creamy coconut buttercream', label: null },
-    { name: 'Nutella',        price6: 30, price8: 45, price10: 65, description: 'Moist chocolate base with rich nutella buttercream topped with hazelnuts', label: null },
-    { name: 'Biscoff',        price6: 30, price8: 50, price10: 70, description: 'Vanilla base with velvety biscoff buttercream and crunchy biscoff bits', label: null },
-    { name: 'Cookies & Cream', price6: 30, price8: 50, price10: 70, description: 'Moist chocolate base with crunch oreo bits and delicious vanilla buttercream', label: null },
-    { name: 'Chocolate Truffle', price6: 25, price8: 40, price10: 55, description: 'Moist chocolate base with rich chocolate ganache', label: null },
+    { name: 'Mango',          price6: 25, price8: 45, price10: 65, description: 'Classic vanilla base paired with rich mango purée and smooth mango fresh cream', label: 'Best-seller' },
+    { name: 'Black Forest',   price6: 25, price8: 45, price10: 65, description: 'Moist chocolate base with cherry compote and delicious fresh cream', label: 'Must-try' },
+    { name: 'Strawberry',     price6: 25, price8: 45, price10: 65, description: 'Moist vanilla base with homemade strawberry purée and fluffy strawberry fresh cream', label: 'Must-try' },
+    { name: 'Rose Pistachio', price6: 30, price8: 50, price10: 75, description: 'Pistachio base, layered with aromatic rose fresh cream and crushed pistachio', label: 'Best-seller' },
+    { name: 'Dubai Dream',    price6: 35, price8: 60, price10: 85, description: 'Moist chocolate base with crunchy pistachio kanafeh filling complimented with chocolate ganache', label: 'Must-try' },
+    { name: 'Rasmalai',       price6: 35, price8: 60, price10: 85, description: 'Soft vanilla base soaked in rasmalai milk with rasmalai fresh cream and nuts', label: 'Best-seller' },
+    { name: 'Gulab Jamun',       price6: 35, price8: 60, price10: 85, description: 'Soft vanilla base soaked in rose syrup with cardamom fresh cream and gulab jamun bits and nuts', label: null },
+    { name: 'Pineapple',      price6: 25, price8: 45, price10: 65, description: 'Vanilla base with light pineapple fresh cream and juicy pineapple chunks', label: null },
+    { name: 'Vanilla',        price6: 25, price8: 45, price10: 65, description: 'Classic vanilla base with light and fluffy vanilla buttercream', label: null },
+    { name: 'White Forest',   price6: 25, price8: 45, price10: 65, description: 'Vanilla base with cherry compote complemented by delicate fresh cream', label: null },
+    { name: 'Chocolate',      price6: 25, price8: 45, price10: 65, description: 'Moist chocolate base with rich chocolate buttercream and sprinkle of chocolate chips', label: null },
+    { name: 'Caramel',        price6: 30, price8: 50, price10: 75, description: 'Moist chocolate base with salted caramel cream', label: null },
+    { name: 'Spiced Carrot',  price6: 30, price8: 50, price10: 75, description: 'Classic spiced carrot base with cream cheese frosting', label: null },
+    { name: 'Coffee',         price6: 30, price8: 50, price10: 75, description: 'Aromatic coffee base complemented by cream cheese frosting', label: null },
+    { name: 'Red Velvet',     price6: 30, price8: 50, price10: 75, description: 'Classic velvet base with light and fluffy cream cheese frosting', label: null },
+    { name: 'Coconut Raspberry', price6: 30, price8: 50, price10: 75, description: 'Vanilla base with homemade raspberry compote and creamy coconut buttercream', label: null },
+    { name: 'Nutella',        price6: 30, price8: 50, price10: 75, description: 'Moist chocolate base with rich nutella buttercream topped with hazelnuts', label: null },
+    { name: 'Biscoff',        price6: 30, price8: 50, price10: 75, description: 'Vanilla base with velvety biscoff buttercream and crunchy biscoff bits', label: null },
+    { name: 'Cookies & Cream', price6: 30, price8: 50, price10: 75, description: 'Moist chocolate base with crunch oreo bits and delicious vanilla buttercream', label: null },
+    { name: 'Chocolate Truffle', price6: 25, price8: 45, price10: 65, description: 'Moist chocolate base with rich chocolate ganache', label: null },
   ]
 };
 
@@ -61,7 +61,7 @@ export default function CakesForAllOccasionsPage() {
     <div style={{ marginBottom: '3rem' }}>
       <h2 style={{
         color: '#000',
-        fontWeight: "700",
+        fontWeight: "800",
         fontSize: isMobile ? '1.4rem' : '1.8rem',
         textAlign: 'center',
         marginBottom: '1.5rem',
@@ -72,9 +72,9 @@ export default function CakesForAllOccasionsPage() {
 
       {/* Compact table */}
       <div style={{
-        maxWidth: isMobile ? '100%' : '500px',
+        maxWidth: isMobile ? '100%' : '650px',
         margin: '0 auto 1rem',
-        background: 'rgba(255,255,255,0.9)',
+        background: 'rgba(265,265,265,0.9)',
         borderRadius: '12px',
         padding: isMobile ? '1rem' : '1.5rem',
         boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
@@ -91,7 +91,7 @@ export default function CakesForAllOccasionsPage() {
                 padding: isMobile ? '0.5rem' : '0.75rem',
                 borderBottom: '2px solid rgba(107, 75, 58, 0.2)',
                 color: '#000',
-                fontWeight: '700',
+                fontWeight: '800',
                 fontSize: isMobile ? '0.95rem' : '1.1rem',
                 letterSpacing: '0.5px'
               }}>
@@ -102,7 +102,7 @@ export default function CakesForAllOccasionsPage() {
                   padding: isMobile ? '0.5rem' : '0.75rem',
                   borderBottom: '2px solid rgba(107, 75, 58, 0.2)',
                   color: '#000',
-                  fontWeight: '700',
+                  fontWeight: '800',
                   fontSize: isMobile ? '1rem' : '1.2rem'
                 }}>
                   {s.size}
@@ -163,7 +163,7 @@ export default function CakesForAllOccasionsPage() {
 
           <h2 style={{
             color: '#000',
-            fontWeight: "700",
+            fontWeight: "800",
             fontSize: isMobile ? '1.4rem' : '1.8rem',
             textAlign: 'center',
             marginBottom: '2rem',

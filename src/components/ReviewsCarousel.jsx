@@ -6,6 +6,30 @@ import { BsStarFill, BsChevronLeft, BsChevronRight } from "react-icons/bs";
 // Real reviews from Google - UPDATE THESE MANUALLY as new reviews come in
 const REVIEWS = [
   {
+    author: "Binsha Rohit",
+    rating: 5,
+    text: "The cake was so delicious and super moist really liked it .",
+    category: "Takeaway | Other | €20–30"
+  },
+  {
+    author: "Vinayak Choudhary",
+    rating: 5,
+    text: "An exquisite range of cakes and tres leches refined, indulgent, and unforgettable ❤️",
+    category: "Takeaway | Other | €20–30"
+  },
+  {
+    author: "Sneha Pahuja",
+    rating: 5,
+    text: "Ordered cake and absolutely delicious tres leches and both were amazing. Would order again!”❤️",
+    category: "Takeaway | Other | €20–30"
+  },
+  {
+    author: "Janani Venkatesan",
+    rating: 5,
+    text: "The cake was delicious to the core.. Especially the cream was extremely nice..she customises according to our need.. loved her work",
+    category: "Takeaway | Other | €20–30"
+  },
+  {
     author: "Mohinish Sahai",
     rating: 5,
     text: "Absolutely loved the mango cake from Zunu Bakehouse! 🥭🍰 The flavor was rich, fresh, and perfectly balanced—not overly sweet, with a real mango taste that stood out. The design was truly marvellous, looking as amazing as it tasted. It's hard to believe such great texture and flavor came from an eggless cake—soft, moist, and delicious in every bite. On top of that, it's excellent value for money. Highly recommended for anyone looking for a beautiful, tasty, and high-quality cake. Will definitely be ordering again!",
@@ -38,7 +62,7 @@ const REVIEWS = [
 ];
 
 const OVERALL_RATING = 4.9;
-const TOTAL_REVIEWS = 10;
+const TOTAL_REVIEWS = 15;
 
 const GOOGLE_REVIEW_LINK = "https://share.google/IHG9kLajFTE3qSDCq";
 
