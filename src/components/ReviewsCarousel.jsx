@@ -6,6 +6,18 @@ import { BsStarFill, BsChevronLeft, BsChevronRight } from "react-icons/bs";
 // Real reviews from Google - UPDATE THESE MANUALLY as new reviews come in
 const REVIEWS = [
   {
+    author: "Lakshana sree Rajasekar",
+    rating: 5,
+    text: "The cake was super moist and delicious! 😊 Loved the flavors and decoration too",
+    category: "Takeaway | Other | €20–30"
+  },
+  {
+    author: "Visali Soundararajan",
+    rating: 5,
+    text: "Cake taste scrumptious and delightful. Will come back again and again no doubt in that😍❤️. The best in Ireland 💕",
+    category: "Takeaway | Other | €20–30"
+  },
+  {
     author: "Binsha Rohit",
     rating: 5,
     text: "The cake was so delicious and super moist really liked it .",
@@ -62,7 +74,7 @@ const REVIEWS = [
 ];
 
 const OVERALL_RATING = 4.9;
-const TOTAL_REVIEWS = 15;
+const TOTAL_REVIEWS = 17;
 
 const GOOGLE_REVIEW_LINK = "https://share.google/IHG9kLajFTE3qSDCq";
 
