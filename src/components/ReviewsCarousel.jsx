@@ -6,6 +6,35 @@ import { BsStarFill, BsChevronLeft, BsChevronRight } from "react-icons/bs";
 // Real reviews from Google - UPDATE THESE MANUALLY as new reviews come in
 const REVIEWS = [
   {
+    author: "Vinitha Ponnambalam",
+    rating: 5,
+    text: "Absolutely loved the Dubai chocolate cake – rich, moist, and perfectly sweet. A must-try for chocolate lovers"
+  },
+  {
+    author: "Siva Subramanian Lakshmi Narayanan",
+    rating: 5,
+    text: "Incredibly delicious Dubai chocolate cake with a smooth, rich texture. Will definitely order again!",
+    category: "Food : 5/5"
+  },
+  {
+    author: "shylaja govind",
+    rating: 5,
+    text: "I had ordered mango flavour cake , and every guest just loved it",
+    category: "Takeaway"
+  },
+  {
+    author: "aditi ramesh",
+    rating: 5,
+    text: "Absolutely loved the chocolate pistachio kunafa cake 😍 It was next-level delicious—so unique and indulgent. Service was great as well. Will definitely be back!",
+    category: "Takeaway | €20–30"
+  },
+  {
+    author: "Aneta Stasiuk",
+    rating: 5,
+    text: "The cake was absolutely perfect! It tasted amazing and everyone loved it. Highly recommended!",
+    category: "Takeaway | €20–30"
+  },
+  {
     author: "Lakshana sree Rajasekar",
     rating: 5,
     text: "The cake was super moist and delicious! 😊 Loved the flavors and decoration too",
@@ -73,8 +102,8 @@ const REVIEWS = [
   },
 ];
 
-const OVERALL_RATING = 4.9;
-const TOTAL_REVIEWS = 17;
+const OVERALL_RATING = 5.0;
+const TOTAL_REVIEWS = 22;
 
 const GOOGLE_REVIEW_LINK = "https://share.google/IHG9kLajFTE3qSDCq";
 
