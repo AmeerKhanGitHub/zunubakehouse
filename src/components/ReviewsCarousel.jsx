@@ -6,6 +6,39 @@ import { BsStarFill, BsChevronLeft, BsChevronRight } from "react-icons/bs";
 // Real reviews from Google - UPDATE THESE MANUALLY as new reviews come in
 const REVIEWS = [
   {
+    author: "Carlos ASAP",
+    rating: 4,
+    text: "Great cakes"
+  },
+  {
+    author: "Brian Warde",
+    rating: 5,
+    text: "The cake was top class tasted lovely and moist, one of the nicest cakes I had in a while. Zunu where very helpful there communication was good, they helped me with my request. I ordered a Nutella 8' cake for a 50th birthday, for 10 people more than enough, I was able to give some to people that wasn't at the party. I will be using them again and I will be recommend them."
+  },
+  {
+    author: "Sandra Nestor",
+    rating: 5,
+    text: "Mango cake was just delicious and Tanya’s design was excellent. Tanya was very helpful, the whole experience was excellent and very efficient. Thanks Tanya, I’ll be ordering again 🎂😍",
+    category: "Food : 5/5"
+  },
+  {
+    author: "Michelle Mc",
+    rating: 5,
+    text: "Ordered red velvet cake, lovely design and the cake was amazing. Very friendly service and great value",
+    category: "Takeaway | €20–30"
+  },
+  {
+    author: "amulya H T",
+    rating: 5,
+    text: "I ordered two cakes from Tanya – one Mango and one Rasmalai – and both were absolutely delicious! The Mango cake was perfectly sweet and fruity, with a soft, moist texture. The Rasmalai cake was rich, creamy, and full of authentic flavor – just like the traditional dessert. Both were super yummy and a real treat. Highly recommend!",
+    category: "Takeaway"
+  },
+  {
+    author: "Game Scope",
+    rating: 5,
+    text: "Cake was so yummy and mouthwatering. Thanks zunu cakes to make my son’s birthday special. I give 5 star ratings . presentation was really good ."
+  },
+  {
     author: "DUNMORE KADZUTU",
     rating: 5,
     text: "Ordered a birthday cake for my wife from Tanya last minute and she delivered. Am so happy and thankful and it was a red velvet cake, tasty and beautiful cake. Everyone should try it. 💯✔️"
@@ -131,8 +164,8 @@ const REVIEWS = [
   },
 ];
 
-const OVERALL_RATING = 5.0;
-const TOTAL_REVIEWS = 28;
+const OVERALL_RATING = 4.9;
+const TOTAL_REVIEWS = 34;
 
 const GOOGLE_REVIEW_LINK = "https://share.google/IHG9kLajFTE3qSDCq";
 

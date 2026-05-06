@@ -12,7 +12,7 @@ const cakesData = {
   ],
   flavors: [
     { name: 'Mango',          price6: 30, price8: 50, price10: 80, description: 'Classic vanilla base paired with rich mango purée and smooth mango fresh cream', label: 'Best-seller' },
-    { name: 'Black Forest',   price6: 30, price8: 50, price10: 80, description: 'Moist chocolate base with cherry compote and delicious fresh cream', label: 'Must-try' },
+    { name: 'Black Forest',   price6: 35, price8: 55, price10: 85, description: 'Moist chocolate base with cherry compote and delicious fresh cream', label: 'Must-try' },
     { name: 'Strawberry',     price6: 30, price8: 50, price10: 80, description: 'Moist vanilla base with homemade strawberry purée and fluffy strawberry fresh cream', label: 'Must-try' },
     { name: 'Rose Pistachio', price6: 35, price8: 55, price10: 85, description: 'Pistachio base, layered with aromatic rose fresh cream and crushed pistachio', label: 'Best-seller' },
     { name: 'Dubai Dream',    price6: 40, price8: 60, price10: 95, description: 'Moist chocolate base with crunchy pistachio kanafeh filling complimented with chocolate ganache', label: 'Must-try' },
@@ -22,7 +22,7 @@ const cakesData = {
     { name: 'Pineapple',      price6: 30, price8: 50, price10: 80, description: 'Vanilla base with light pineapple fresh cream and juicy pineapple chunks', label: null },
     { name: 'Vanilla',        price6: 30, price8: 50, price10: 80, description: 'Classic vanilla base with light and fluffy vanilla buttercream', label: null },
     { name: 'White Forest',   price6: 30, price8: 50, price10: 80, description: 'Vanilla base with cherry compote complemented by delicate fresh cream', label: null },
-    { name: 'Chocolate',      price6: 30, price8: 50, price10: 80, description: 'Moist chocolate base with rich chocolate buttercream and sprinkle of chocolate chips', label: null },
+    { name: 'Chocolate',      price6: 35, price8: 55, price10: 85, description: 'Moist chocolate base with rich chocolate buttercream', label: null },
     { name: 'Caramel',        price6: 35, price8: 55, price10: 85, description: 'Moist chocolate base with salted caramel cream', label: null },
     { name: 'Spiced Carrot',  price6: 35, price8: 55, price10: 85, description: 'Classic spiced carrot base with cream cheese frosting', label: null },
     { name: 'Coffee',         price6: 35, price8: 55, price10: 85, description: 'Aromatic coffee base complemented by cream cheese frosting', label: null },
@@ -32,7 +32,7 @@ const cakesData = {
     { name: 'Biscoff',        price6: 35, price8: 55, price10: 85, description: 'Vanilla base with velvety biscoff buttercream and crunchy biscoff bits', label: null },
     { name: 'Pistachio',        price6: 35, price8: 55, price10: 85, description: 'Vanilla base with nutty pistachio buttercream and crunchy pistachio bits', label: null },
     { name: 'Cookies & Cream', price6: 35, price8: 55, price10: 85, description: 'Moist chocolate base with crunch oreo bits and delicious vanilla buttercream', label: null },
-    { name: 'Chocolate Truffle', price6: 35, price8: 50, price10: 80, description: 'Moist chocolate base with rich chocolate ganache', label: null },
+    { name: 'Chocolate Truffle', price6: 40, price8: 60, price10: 90, description: 'Moist chocolate base with rich chocolate ganache', label: null },
   ]
 };
 
