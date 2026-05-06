@@ -6,6 +6,35 @@ import { BsStarFill, BsChevronLeft, BsChevronRight } from "react-icons/bs";
 // Real reviews from Google - UPDATE THESE MANUALLY as new reviews come in
 const REVIEWS = [
   {
+    author: "DUNMORE KADZUTU",
+    rating: 5,
+    text: "Ordered a birthday cake for my wife from Tanya last minute and she delivered. Am so happy and thankful and it was a red velvet cake, tasty and beautiful cake. Everyone should try it. 💯✔️"
+  },
+  {
+    author: "Izabelle Bro",
+    rating: 5,
+    text: "I ordered a cake from Tanya for my son’s first birthday and I couldn’t be happier with it. I sent her a photo of what I had in mind and she absolutely perfected it.The cake got so many compliments on how great it looked and once we all tasted it, people were saying it was one of the best cakes they’ve had. You can tell how talented she is and how much care she puts into her work. We chose the vanilla flavour this time, but after tasting it I can’t wait to try more of her flavours for future occasions.",
+    category: "Food : 5/5"
+  },
+  {
+    author: "priyanka bundela",
+    rating: 5,
+    text: "The cake was absolutely delicious! I ordered the cardamom rose flavored cake, and it was exactly the taste I had been searching for. I’ve tried this flavor from different places before, but nothing matched this one. The balance of cardamom and rose was just perfect aromatic, fresh, and not overpowering. I truly loved it and will definitely be ordering again. Highly recommended!",
+    category: "Takeaway | €20–30"
+  },
+  {
+    author: "Guru Prasad",
+    rating: 5,
+    text: "Amazing kunafa cake! Loved every bite. Highly recommend.",
+    category: "Takeaway"
+  },
+  {
+    author: "Ruqia Liaqat",
+    rating: 5,
+    text: "I had wonderful experience with her, she made a perfect cake for my little one definitely recommend her.",
+    category: ""
+  },
+  {
     author: "Vinitha Ponnambalam",
     rating: 5,
     text: "Absolutely loved the Dubai chocolate cake – rich, moist, and perfectly sweet. A must-try for chocolate lovers"
@@ -103,7 +132,7 @@ const REVIEWS = [
 ];
 
 const OVERALL_RATING = 5.0;
-const TOTAL_REVIEWS = 22;
+const TOTAL_REVIEWS = 28;
 
 const GOOGLE_REVIEW_LINK = "https://share.google/IHG9kLajFTE3qSDCq";
 
